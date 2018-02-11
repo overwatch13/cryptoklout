@@ -1,0 +1,1 @@
+.group{zoom:1}.group:before,.group:after{content:"";display:table}.group:after{clear:both}.clearfix{display:block;zoom:1}.clearfix:after{content:" ";display:block;font-size:0;height:0;clear:both;visibility:hidden}.vertical-align{position:relative;top:50%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}
