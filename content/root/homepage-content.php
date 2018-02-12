@@ -14,11 +14,11 @@
     </div>
 </section>
 
-
+  <?php include ROOT . "content/root/homepage-user-predictions.php"; ?>
 
   <div class="single-day-predict-homepage-override">
     <!-- <section> for new users to take a guess, and thus sign up. -->
-  <?php include ROOT . "content/predictions/prediction-single-day-content.php"; ?>
+  <?php /*include ROOT . "content/predictions/prediction-single-day-content.php";*/ ?>
   </div>
 
   <!-- two sections that came with the template, could be used for something  -->

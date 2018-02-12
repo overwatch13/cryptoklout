@@ -87,7 +87,7 @@ require.config({
 });
 
 
-require(["jquery", "jqueryUi", "bootstrap", "owlCarousel", "select2"], function ($, jqueryUi, bootstrap, owlCarousel, select2) {
+require(["jquery", "jqueryUi", "bootstrap", "owlCarousel", "select2", "blockui"], function ($, jqueryUi, bootstrap, owlCarousel, select2, blockui) {
   $(document).ready(function(){
     require([ $('#requirePageSpecificJs').val() ]); // this is set in php, result: "/require-mturk.js" 
   });

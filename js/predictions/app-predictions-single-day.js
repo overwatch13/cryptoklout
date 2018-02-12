@@ -1,21 +1,19 @@
 define(["cryptcompareGetCoinPrice", "numberUtilities"], function (cryptcompareGetCoinPrice, numberUtilities) {
-    console.log("app-predictions-single-day")
+    //console.log("app-predictions-single-day")
     //cryptcompareGetallcoins.getAllCoins(); // When you want to go multi coin, you already set this up. 
 
     var currentPrice;
     $predictionPrice = $("#predictionPrice");
     $percentageInput = $("#percentageInput");
     $predictionReason = $("#predictionReason");
+    $predictionSubmitBtn = $("#predictionSubmitBtn")
 
+    // reuns api to get currentp price.
     var btcPrice = cryptcompareGetCoinPrice.getCoinPrice({coinSymbol: "BTC", currency: "USD"}).done(function(data){
     	//console.log(data);
     	currentPrice = data.USD;
     	cryptcompareGetCoinPrice.paintCoinPrice($("#coinPrice"), data, "USD");
     });
-
-    //console.log(btcPrice)
-    /**/
-
 
    var _getPercentageChange = function(oldNumber, newNumber){
 		// works for decreasing numbers, 9, 6 == 66% decrease.
@@ -38,6 +36,50 @@ define(["cryptcompareGetCoinPrice", "numberUtilities"], function (cryptcompareGe
     		$percentageInput.removeClass("green-text");
     	}
     };
+
+    var _createPredictionObj = function(){
+        return {
+            operation : "submitSingleDayPrediction", // for the ajax switch
+            function : "submitSingleDayPrediction", // function name in the class we want to hit.
+            predictionDays: "1", // amount of days the prediction is out for. 
+            coinSymbol: "BTC",
+            currencySymbol: "USD",
+            currentPrice: currentPrice, 
+            predictedPrice: $predictionPrice.val(),
+            percentageDifference: $percentageInput.val(),
+            reason: $predictionReason.val(),
+        }
+    }
+
+
+    var _submitPrediction = function(){
+        // Add validation prior to actually submitting!!! use jquery validate.
+
+        // make call to insert the information for user 1.
+        var obj = _createPredictionObj();
+        //console.log(obj)
+        /*$.blockUI({
+            css: {
+                backgroundColor: '#7E7E7E',
+                color: '#fff'
+            },
+            message: '<h1>Submitting</h1>'
+        });*/
+
+        // do research on security risk of this. 
+        $.post("/ajax-internal.php", obj).done(function(data) {
+            data = $.parseJSON(data);
+            console.log(data)
+            $(".error").html(data)
+        }).fail(function(data) {
+            $(".error").html(data)
+        }).always(function() {
+            $.unblockUI();
+        });
+    };
+
+
+    // ******* Click Events *************
     
     $predictionPrice.on("change", function(){
     	var newNumber = $(this).val();
@@ -47,6 +89,16 @@ define(["cryptcompareGetCoinPrice", "numberUtilities"], function (cryptcompareGe
     	$percentageInput.val(percentChangeRoundedHundreths);
     	$predictionReason.focus();
 
+    });
+
+    $percentageInput.on("change", function(){
+        // do reverse logic of the above in here, so you can derive the predicted price by the percentage given. 
+    });
+
+
+    $predictionSubmitBtn.on("click", function(e){
+        e.preventDefault();
+        _submitPrediction();
     });
 
 
