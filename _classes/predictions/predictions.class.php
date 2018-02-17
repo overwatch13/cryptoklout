@@ -1,9 +1,15 @@
 <?php 
 
+<<<<<<< HEAD
+
+/* INVENTORY
+submitPrediction
+=======
 /* INVENTORY
 
 submitPrediction
 
+>>>>>>> a5a05c54dd4c8cbb32d0db6ab3bdb293029ebbb0
 */
 
 class Predictions extends Standards {
@@ -42,4 +48,25 @@ class Predictions extends Standards {
 
 		return $array;
 	}
+<<<<<<< HEAD
+	
+	function getPredictions(){
+	    $sql = "SELECT * FROM predictionsSingleDay";
+    	$query = $this->query($sql, 'fetch');
+	    	
+	    $array = array(
+			'query'=> $query,
+			'sql'=>$sql,
+			//'info'=>$info,
+			//'userId'=>$userId,
+			//'post'=>$post,
+			//'coinSymbol'=>$coinSymbol,
+		);
+
+		return $array;
+	}
+	
+
+=======
+>>>>>>> a5a05c54dd4c8cbb32d0db6ab3bdb293029ebbb0
 }

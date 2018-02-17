@@ -12,7 +12,15 @@ if($local==true){
 	$contentPathRoot = "root\\";
 	$cssJSPath = "\\cryptoklout\\";
 }
+<<<<<<< HEAD
+else if(empty($_SERVER['DOCUMENT_ROOT'])){ // path when the server is running the script directly. 
+	// define Remote Server routes
+	define ('ROOT', "/home/cryptoklout/public_html" . "/"); 	
+}
+else {
+=======
 else{
+>>>>>>> a5a05c54dd4c8cbb32d0db6ab3bdb293029ebbb0
 	// define Remote Server routes
 	define ('ROOT', $_SERVER['DOCUMENT_ROOT'] . "/"); 	
 	$cssJSPath = "/"; // you would need to verify this as correct

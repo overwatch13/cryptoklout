@@ -1,0 +1,7 @@
+[13-Feb-2018 21:26:09 UTC] PHP Fatal error:  Class 'Predictions' not found in /home/cryptoklout/public_html/_classes/predictions/prediction-consensus.php on line 6
+[13-Feb-2018 21:27:00 UTC] PHP Fatal error:  Class 'Predictions' not found in /home/cryptoklout/public_html/_classes/predictions/prediction-consensus.php on line 5
+[13-Feb-2018 21:43:08 UTC] PHP Warning:  Illegal string offset 'predictedPrice' in /home/cryptoklout/public_html/_classes/predictions/prediction-consensus.php on line 17
+[13-Feb-2018 21:59:17 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/cryptoklout/public_html/_classes/predictions/prediction-consensus.php on line 20
+[13-Feb-2018 21:59:17 UTC] PHP Warning:  Division by zero in /home/cryptoklout/public_html/_classes/predictions/prediction-consensus.php on line 24
+[15-Feb-2018 20:04:41 UTC] PHP Fatal error:  Class 'Standards' not found in /home/cryptoklout/public_html/_classes/predictions/predictions.class.php on line 10
+[15-Feb-2018 22:01:12 UTC] PHP Fatal error:  Class 'Standards' not found in /home/cryptoklout/public_html/_classes/predictions/predictions.class.php on line 8

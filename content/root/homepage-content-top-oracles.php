@@ -7,7 +7,11 @@
       <div class="owl-carousel owl-theme testimonials-slider"> 
         <div class="item-holder">
           <div class="item">
+<<<<<<< HEAD
+            <div class="avatar"><img src="/img/avatar-5.jpg" alt="..." class="img-fluid"></div>
+=======
             <div class="avatar"><img src="img/avatar-3.jpg" alt="..." class="img-fluid"></div>
+>>>>>>> a5a05c54dd4c8cbb32d0db6ab3bdb293029ebbb0
             <div class="text">
               <div class="quote"><img src="img/quote.svg" alt="..." class="img-fluid"></div>
               <p>My outlook for the week of 2/15/2018 is looking grim, I see BTC lowering 15% to nearly 7600 usd.</p><strong class="name">Jessica Watson </strong>

@@ -1,6 +1,10 @@
  <!-- navbar-->
     <header class="header">
+<<<<<<< HEAD
+      <nav class="navbar navbar-expand-lg fixed-top"><a href="/" class="navbar-brand">CryptoKlout</a>
+=======
       <nav class="navbar navbar-expand-lg fixed-top"><a href="index.html" class="navbar-brand">CryptoKlout</a>
+>>>>>>> a5a05c54dd4c8cbb32d0db6ab3bdb293029ebbb0
         <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><span></span><span></span><span></span></button>
         <div id="navbarSupportedContent" class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto align-items-start align-items-lg-center">

@@ -5,9 +5,18 @@
     <div class="container">
       <div class="row d-flex">
         <div class="col-lg-6 text order-2 order-lg-1">
+<<<<<<< HEAD
+          <h1>Are you the Crypto King?</h1>
+          <p class="hero-text">CryptoKlout.com is a website dedicated to tracking crypto currency predictions. Take the guess work out of seeing if someone is legitimate or not by checking our their CryptoKlout score. Want to see market trends? Check out what others are saying about the future of Crypto.
+          </p>
+             <!-- <div class="CTA">
+                 <a href="#features" class="btn btn-primary btn-shadow btn-gradient link-scroll">Discover More</a><a href="#" class="btn btn-outline-primary">Login</a>
+             </div>-->
+=======
           <h1>Do you know more about crypto?</h1>
           <p class="hero-text">CryptoKlout.com is the official score for people who make predictions about CryptoCurrency trends</p>
           <div class="CTA"><a href="#features" class="btn btn-primary btn-shadow btn-gradient link-scroll">Discover More</a><a href="#" class="btn btn-outline-primary">Login</a></div>
+>>>>>>> a5a05c54dd4c8cbb32d0db6ab3bdb293029ebbb0
         </div>
         <div class="col-lg-6 order-1 order-lg-2"><img src="img/Macbook.png" alt="..." class="img-fluid"></div>
       </div>
@@ -34,7 +43,11 @@
       <div class="row">
         <p class="lead col-lg-10">The platform will allow anyone to sign up and start predicting price changes on certain cryptocurrencies. The closer to correct a user is, the better their CryptoKlout becomes. Users who have a following can also embed their CryptoKlout rank/score on their news articles and within their social channels to encourage their networks to follow their predictions, as well as to show off the credibility of their predictions.
         </p>
+<<<<<<< HEAD
+      </div><!--<a href="#" class="btn btn-primary btn-shadow btn-gradient">Discover More</a>-->
+=======
       </div><a href="#" class="btn btn-primary btn-shadow btn-gradient">Discover More</a>
+>>>>>>> a5a05c54dd4c8cbb32d0db6ab3bdb293029ebbb0
     </div>
   </section>
 
@@ -83,6 +96,10 @@
     </div>
   </section>
  
+<<<<<<< HEAD
+  <?php /*include ROOT . "content/root/homepage-content-newsletter-subscribe.php";*/ ?>
+  
+=======
   <section id="newsletter" class="newsletter bg-gray">
     <div class="container text-center">
       <h2>Subscribe to Newsletter</h2>
@@ -97,6 +114,7 @@
       </div>
     </div>
   </section>
+>>>>>>> a5a05c54dd4c8cbb32d0db6ab3bdb293029ebbb0
   <div id="scrollTop">
     <div class="d-flex align-items-center justify-content-end"><i class="fa fa-long-arrow-up"></i>To Top</div>
   </div>

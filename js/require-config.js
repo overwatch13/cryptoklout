@@ -65,6 +65,14 @@ require.config({
         // sometimes you may want to include an entire section or page somewhere else like a vm. so you can referance a page here.
         "appPredictionsSingleDay" : "predictions/app-predictions-single-day",
 
+<<<<<<< HEAD
+        //** New Vendors ***/
+        'popper': "vendors/popper.min",
+        'd3' : 'vendors/d3/d3.min', //  i dont think this is loading correctly right now. 
+        'techan' : 'vendors/d3/techan', // This is a private library built on top of d3 for awesome stock charts, https://github.com/andredumas/techan.js
+
+=======
+>>>>>>> a5a05c54dd4c8cbb32d0db6ab3bdb293029ebbb0
     },
       
 
@@ -75,7 +83,11 @@ require.config({
            'deps': ['jquery'], // depends on jquery
        },
        'bootstrap': {
+<<<<<<< HEAD
+           'deps': ['jquery', 'jqueryUi', 'popper'], // depends on jquery
+=======
            'deps': ['jquery', 'jqueryUi'], // depends on jquery
+>>>>>>> a5a05c54dd4c8cbb32d0db6ab3bdb293029ebbb0
        },
        'jgrowl': {
            'deps': ['jquery', 'jqueryUi', 'bootstrap'], // depends on jquery
