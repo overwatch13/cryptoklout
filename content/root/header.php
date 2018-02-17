@@ -3,8 +3,37 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>CryptoKlout.com is the official score for people who make predictions about CryptoCurrency trends </title>
-    <meta name="description" content="">
+    <title><?php print $metaTitle; ?></title>
+    <meta name="description" content="<?php print $metaDescription; ?>">
+    <meta name="keywords" content="<?php print $metaKeywords; ?>">
+    
+    <?php if(isset($ogUrl)){ ?>
+    <meta property="og:url" content="<?php echo $ogUrl; ?>" />
+    <?php } ?>
+    <?php if(isset($ogType)){ ?>
+    <meta property="og:type" content="<?php echo $ogType; ?>" />
+    <?php } ?>
+    <?php if(isset($ogTitle)){ ?>
+    <meta property="og:title" content="<?php echo $ogTitle; ?>" />
+    <?php } ?>
+    <?php if(isset($ogDescription)){ ?>
+    <meta property="og:description" content="<?php echo $ogDescription; ?>" />
+    <?php } ?>
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/img/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/img/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="/img/ico/favicon.png" type="image/x-icon" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
     <!-- Bootstrap CSS-->
@@ -27,10 +56,34 @@
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="/css/less/custom.css">
 
-    <!-- Favicon-->
-    <link rel="shortcut icon" href="/favicon.png">
-    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
-        <script src="https:/oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https:/oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <!-- php dynamic css additions - page specific -->
+    <?php 
+    if(isset($cssSpecific)){
+        foreach($cssSpecific as $value){
+            echo '<link rel="stylesheet" href="/css/' . $value . '" type="text/css">';
+            echo "\n";
+        }
+    }
+    ?>
+
   </head>
   <body>
+
+<!-- FACEBOOK SDK -->
+<script>
+  /*window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '488287958023847',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));*/
+</script>

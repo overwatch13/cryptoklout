@@ -1,4 +1,5 @@
 <?php
+
 $tabActive = "index.php";
 $cssSpecific = array('less/homepage.css');
 $contentDisplay = "homepage-content.php";

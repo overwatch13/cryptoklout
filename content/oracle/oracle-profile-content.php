@@ -1,7 +1,6 @@
 
 <?php /*include "homepage-content-logic.php"; */ ?>
 
-<<<<<<< HEAD
 <style>
 
 /* Universal class changes */
@@ -394,7 +393,6 @@ h5{
               </div><!-- col -->
         </div><!-- .row date block -->
 
-=======
 <section id="hero" class="hero hero-home bg-gray">
       <div class="container">
         <div class="row d-flex">
@@ -405,7 +403,6 @@ h5{
           </div>
           <div class="col-lg-6 order-1 order-lg-2"><img src="<?php echo ROOT; ?>img/Macbook.png" alt="..." class="img-fluid"></div>
         </div>
->>>>>>> a5a05c54dd4c8cbb32d0db6ab3bdb293029ebbb0
       </div>
     </section>
    

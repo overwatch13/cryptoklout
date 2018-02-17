@@ -305,15 +305,14 @@ section header {
   font-size: 0.9em;
 }
 
-<<<<<<< HEAD
-=======
+
 /* General Media Query ---------------------------------- */
 @media (max-width: 991px) {
   section {
     padding: 100px 0;
   }
 }
->>>>>>> a5a05c54dd4c8cbb32d0db6ab3bdb293029ebbb0
+
 
 /*
 * ==========================================================
@@ -683,11 +682,7 @@ section.newsletter .form-group .submit {
 * ==========================================================
 */
 footer.main-footer {
-<<<<<<< HEAD
   padding: 60px 0 0;
-=======
-  padding: 150px 0 0;
->>>>>>> a5a05c54dd4c8cbb32d0db6ab3bdb293029ebbb0
   overflow-x: hidden;
 }
 
@@ -752,11 +747,7 @@ footer.main-footer ul.social-icons a:hover {
 }
 
 footer.main-footer .copyrights {
-<<<<<<< HEAD
   /*margin-top: 150px;*/
-=======
-  margin-top: 150px;
->>>>>>> a5a05c54dd4c8cbb32d0db6ab3bdb293029ebbb0
 }
 
 footer.main-footer .copyrights .container {
@@ -775,17 +766,10 @@ footer.main-footer .copyrights a:hover {
 /* Footer Mediaquery -------------------------- */
 @media (max-width: 991px) {
   footer.main-footer {
-<<<<<<< HEAD
     padding: 60px 0 0;
   }
   footer.main-footer .copyrights {
-    /*margin-top: 100px;*/
-=======
     padding: 100px 0 0;
-  }
-  footer.main-footer .copyrights {
-    margin-top: 100px;
->>>>>>> a5a05c54dd4c8cbb32d0db6ab3bdb293029ebbb0
   }
   footer.main-footer .copyrights div[class*="col-"] {
     text-align: center !important;

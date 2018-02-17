@@ -1,6 +1,5 @@
 <?php 
 
-<<<<<<< HEAD
 
 /* INVENTORY
 submitPrediction
@@ -48,7 +47,6 @@ class Predictions extends Standards {
 
 		return $array;
 	}
-<<<<<<< HEAD
 	
 	function getPredictions(){
 	    $sql = "SELECT * FROM predictionsSingleDay";
@@ -66,7 +64,4 @@ class Predictions extends Standards {
 		return $array;
 	}
 	
-
-=======
->>>>>>> a5a05c54dd4c8cbb32d0db6ab3bdb293029ebbb0
 }
