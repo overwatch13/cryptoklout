@@ -1,4 +1,4 @@
-define(["cryptcompareGetCoinPrice", "numberUtilities"], function (cryptcompareGetCoinPrice, numberUtilities) {
+define(["cryptcompareGetCoinPrice", "numberUtilities", "jqueryValidate"], function (cryptcompareGetCoinPrice, numberUtilities) {
     //console.log("app-predictions-single-day")
     //cryptcompareGetallcoins.getAllCoins(); // When you want to go multi coin, you already set this up. 
 
@@ -39,9 +39,10 @@ define(["cryptcompareGetCoinPrice", "numberUtilities"], function (cryptcompareGe
 
     var _createPredictionObj = function(){
         return {
-            operation : "submitSingleDayPrediction", // for the ajax switch
-            function : "submitSingleDayPrediction", // function name in the class we want to hit.
-            predictionDays: "1", // amount of days the prediction is out for. 
+            operation : "submitPrediction", // for the ajax switch
+            function : "submitPrediction", // function name in the class we want to hit.
+            predictionDays: $("#predDays").val(), // amount of days the prediction is out for. 
+            predictionName: $("#predName").val(),
             coinSymbol: "BTC",
             currencySymbol: "USD",
             currentPrice: currentPrice, 
@@ -93,12 +94,42 @@ define(["cryptcompareGetCoinPrice", "numberUtilities"], function (cryptcompareGe
 
     $percentageInput.on("change", function(){
         // do reverse logic of the above in here, so you can derive the predicted price by the percentage given. 
+        var pDiff = $(this).val();
+        var num;
+        if(pDiff>0){
+            num = currentPrice*(1+(pDiff/100));
+            num = numberUtilities.round(num, 2);
+            $predictionPrice.val(num);
+        }else{
+            num = currentPrice*(1+(pDiff/100));
+            num = numberUtilities.round(num, 2);
+            $predictionPrice.val(num);
+        }
+
+        _changeColor(num);
+        $predictionReason.focus();
     });
 
 
     $predictionSubmitBtn.on("click", function(e){
         e.preventDefault();
-        _submitPrediction();
+        var $submitPredictionForm = $("#submitPredictionForm");
+        $submitPredictionForm.validate({
+            rules: {
+                predictionPrice: { required: true}
+            },
+            messages: {
+                predictionPrice: { required: "A prediction price is required."}
+            }
+        });
+
+        if ($submitPredictionForm.valid()){
+            _submitPrediction();
+        }else{
+            console.log("form is invalid")
+        }
+
+        
     });
 
 

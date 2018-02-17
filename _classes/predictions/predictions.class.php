@@ -1,23 +1,12 @@
 <?php 
 
 
-/* INVENTORY
-submitPrediction
-=======
-/* INVENTORY
-
-submitPrediction
-
->>>>>>> a5a05c54dd4c8cbb32d0db6ab3bdb293029ebbb0
-*/
-
 class Predictions extends Standards {
 	function submitPrediction($info){
 		$post = $info['post'];
-		$predictionName = $info['function'];
 		$userId = $info['userId'];
-		
 		// data points
+		$predictionName = $post['predictionName'];
 		$predictionDays = $post['predictionDays'];
 		$coinSymbol = $post['coinSymbol'];
 		$currencySymbol = $post['currencySymbol'];
@@ -38,7 +27,7 @@ class Predictions extends Standards {
 
 		$array = array(
 			'query'=> $query,
-			'sql'=>$sql,
+			//'sql'=>$sql,
 			//'info'=>$info,
 			//'userId'=>$userId,
 			//'post'=>$post,

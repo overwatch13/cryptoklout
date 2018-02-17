@@ -1,5 +1,5 @@
 // You attempted this on homepage, via the javascript model, but it was too slow so you are now trying a php verison instead. 
-define(["front"], function (front) {
+define([], function () {
     
     // you would need to make a call to go all the way to the backend. You didnt extend the DB to the real one SOB!!!!
     // Perhaps you can work on the multi call function at least? and retrieve simple information? 

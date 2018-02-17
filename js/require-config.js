@@ -55,7 +55,7 @@ require.config({
 
         // *** New modules ***
         // came with the template
-        'front' : 'front',
+        'front' : 'front', // this came as the base js with the template. change this later on.
         "cryptcompareGetallcoins": "modules/cryptocompare/getallcoins",
         "cryptcompareGetCoinPrice": "modules/cryptocompare/getCoinPrice",
 
@@ -87,12 +87,15 @@ require.config({
        },
        'owlCarousel' : {
         'deps' : ['jquery']
+       },
+       'front' : {
+        'deps' : ['owlCarousel']
        }
     },
 });
 
 
-require(["jquery", "jqueryUi", "bootstrap", "owlCarousel", "select2", "blockui"], function ($, jqueryUi, bootstrap, owlCarousel, select2, blockui) {
+require(["jquery", "jqueryUi", "bootstrap", "front", "owlCarousel", "select2", "blockui", ], function ($, jqueryUi, bootstrap, front, owlCarousel, select2, blockui) {
   $(document).ready(function(){
     require([ $('#requirePageSpecificJs').val() ]); // this is set in php, result: "/require-mturk.js" 
   });

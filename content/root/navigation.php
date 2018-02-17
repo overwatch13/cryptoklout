@@ -4,8 +4,9 @@
         <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><span></span><span></span><span></span></button>
         <div id="navbarSupportedContent" class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto align-items-start align-items-lg-center">
-            <li class="nav-item"><a href="#oracles" class="nav-link link-scroll">Oracles</a></li>
-            <li class="nav-item"><a href="#about-us" class="nav-link link-scroll">About Us</a></li>
+            <li class="nav-item"><a href="/#oracles" class="nav-link link-scroll">Oracles</a></li>
+            <li class="nav-item"><a href="/#about-us" class="nav-link link-scroll">About Us</a></li>
+            <li class="nav-item"><a href="/pages/trends/main.php" class="nav-link">Trends</a></li>
           </ul>
           <div class="navbar-text">   
             <!-- Button trigger modal--><a href="#" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary navbar-btn btn-shadow btn-gradient">Login</a>

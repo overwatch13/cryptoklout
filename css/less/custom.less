@@ -3,7 +3,10 @@
 .clear {
     .clearfix;
  }
-
+h5{
+    font-size: 1.10rem;
+    font-weight:500;
+}
 p{
 	font-size:14px;
 	margin-bottom:0rem;
@@ -27,4 +30,32 @@ p{
 
 .cursor-pointer{
     cursor:pointer;
+}
+
+
+.rotate { /* Add this as a mixin !! */
+
+    /* Safari */
+    -webkit-transform: rotate(-45deg);
+    
+    /* Firefox */
+    -moz-transform: rotate(-45deg);
+    
+    /* IE */
+    -ms-transform: rotate(-45deg);
+    
+    /* Opera */
+    -o-transform: rotate(-45deg);
+    
+    
+
+}
+.card-body{
+    padding: 1.0rem;
+}
+
+label.error{
+    color: #dc3545;
+    font-size:12px;
+    margin-top:3px;
 }

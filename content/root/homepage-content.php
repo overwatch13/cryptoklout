@@ -2,7 +2,7 @@
 <?php include ROOT . "content/root/homepage-content-top-hero.php"; ?>
 
 <!-- view for the recent predictions -->
-<?php include ROOT . "content/root/homepage-user-predictions.php"; ?>
+<?php include ROOT . "content/root/homepage-content-user-predictions.php"; ?>
 
 <!-- two sections that came with the template, could be used for something  -->
 <?php /* include ROOT "content/root/homepage-content-example-unused.php"; */ ?>

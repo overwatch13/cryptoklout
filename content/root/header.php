@@ -56,6 +56,9 @@
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="/css/less/custom.css">
 
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="/css/less/media-queries.css">
+
     <!-- php dynamic css additions - page specific -->
     <?php 
     if(isset($cssSpecific)){

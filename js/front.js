@@ -70,9 +70,11 @@ $(function () {
     // Preventing URL update on navigation link click
     // ---------------------------------------------------------- //
     $('.link-scroll').on('click', function (e) {
-        var anchor = $(this);
+        var anchor = $(this).attr('href');
+        anchor = anchor.substring("2");
+        var item = $("#"+ anchor + "");
         $('html, body').stop().animate({
-            scrollTop: $(anchor.attr('href')).offset().top
+            scrollTop: item.offset().top
         }, 1000);
         e.preventDefault();
     });

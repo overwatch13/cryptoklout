@@ -13,10 +13,10 @@ $return = array(
 );
 
 switch ($_REQUEST['operation']){
-	case 'submitSingleDayPrediction': 
+	case 'submitPrediction': 
 		$return = $_REQUEST;
 		$construct = array(
-			'class' => 'singleDayPrediction', 
+			'class' => 'submitPrediction', 
 			'function' => $_REQUEST['function'], 
 			'userId' => 2, // $_SESSION['userID'] when you get login working 
 			'post' => $_POST);
