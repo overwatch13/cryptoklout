@@ -36,5 +36,5 @@ if(!isset($metaKeywords)){
 	$metaKeywords = "";
 }
 
-
+include ROOT . "_classes/standards.class.php";
 /* EOF */

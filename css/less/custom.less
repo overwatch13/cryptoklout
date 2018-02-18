@@ -1,7 +1,15 @@
 @import "mixins";
+@import "variables";
+
+section{
+    padding: 60px 0;
+}
 
 .clear {
     .clearfix;
+ }
+ .hide{
+    display:none;
  }
 h5{
     font-size: 1.10rem;
@@ -26,6 +34,17 @@ p{
 
 .red-text{
 	color:red !important;
+}
+.text-color-main{
+    color: @main-color;
+}
+.text-color-main-dark{
+    color: @main-color-dark;
+}
+
+
+.text-bold{
+    font-weight:bold;
 }
 
 .cursor-pointer{
@@ -58,4 +77,13 @@ label.error{
     color: #dc3545;
     font-size:12px;
     margin-top:3px;
+}
+
+footer.main-footer {
+    padding: 50px 0 0;
+    overflow-x: hidden;
+}
+
+footer.main-footer .copyrights {
+     margin-top: 0px; 
 }

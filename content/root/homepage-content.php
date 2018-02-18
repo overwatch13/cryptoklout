@@ -1,6 +1,9 @@
 <!-- section for the top explanation for homepage -->
 <?php include ROOT . "content/root/homepage-content-top-hero.php"; ?>
 
+<!-- section for the current price of bitcoin -->
+<?php include ROOT . "content/root/homepage-content-current-btc.php"; ?>
+
 <!-- view for the recent predictions -->
 <?php include ROOT . "content/root/homepage-content-user-predictions.php"; ?>
 
@@ -8,7 +11,7 @@
 <?php /* include ROOT "content/root/homepage-content-example-unused.php"; */ ?>
 
 <!-- top Oracles -->
-<?php include ROOT . "content/root/homepage-content-top-oracles.php"; ?>
+<?php /* include ROOT . "content/root/homepage-content-top-oracles.php"; */ ?>
 
 <!-- about us -->
 <?php include ROOT . "content/root/homepage-content-about-us.php"; ?>

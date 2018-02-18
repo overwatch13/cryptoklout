@@ -1,7 +1,6 @@
 <?php 
 // Just get the simplest version working and than extend this out to be more prolific horizontally.
 // We do not want to be including all of the classes here, instead we want to reference the files directly and the router be super generic. 
-include ROOT . "_classes/standards.class.php"; 
 include ROOT . "_classes/predictions/predictions.class.php";
 
 function ckRouter($info){

@@ -47,8 +47,10 @@
     <!-- owl carousel-->
     <link rel="stylesheet" href="/js/vendors/owl.carousel/assets/owl.carousel.css">
     <link rel="stylesheet" href="/js/vendors/owl.carousel/assets/owl.theme.default.css">
+    
     <!-- theme stylesheet-->
-    <link rel="stylesheet" href="/css/style.default.css" id="theme-stylesheet">
+    <!-- <link rel="stylesheet" href="/css/style.default.css" id="theme-stylesheet"> -->
+    <link rel="stylesheet" href="/css/style.sea.css">
     
     <!-- for search and select -->    
     <link rel="stylesheet" href="/node_modules/select2/dist/css/select2.min.css">

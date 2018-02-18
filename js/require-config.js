@@ -89,7 +89,7 @@ require.config({
         'deps' : ['jquery']
        },
        'front' : {
-        'deps' : ['owlCarousel']
+        'deps' : ['owlCarousel', 'jquery']
        }
     },
 });

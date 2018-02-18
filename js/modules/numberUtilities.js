@@ -6,8 +6,13 @@ define([], function(){
 		return Math.round(num * multiplier) / multiplier;
 	}
 
+	var _numberWithCommas = (x) => {
+	  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
+
     return {
-     	round: _round
+     	round: _round,
+     	numberWithCommas:_numberWithCommas
     }
 });
 

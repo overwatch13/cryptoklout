@@ -1,4 +1,4 @@
-define([], function(){
+define(["numberUtilities"], function(numberUtilities){
 
 	var _getCoinPrice = function(coinParams){
 		// right now you are only getting one coin and one currency
@@ -9,7 +9,9 @@ define([], function(){
 	};
 
 	var _paintCoinPrice = function($element, data, currency){
-		$element.text(data[currency]);
+		var rounded = numberUtilities.round(data[currency], 0);
+		var numWithCommas = numberUtilities.numberWithCommas(rounded);
+		$element.text(numWithCommas);
 	};
 
      return {

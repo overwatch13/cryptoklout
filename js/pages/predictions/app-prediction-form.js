@@ -9,11 +9,11 @@ define(["cryptcompareGetCoinPrice", "numberUtilities", "jqueryValidate"], functi
     $predictionSubmitBtn = $("#predictionSubmitBtn")
 
     // reuns api to get currentp price.
-    var btcPrice = cryptcompareGetCoinPrice.getCoinPrice({coinSymbol: "BTC", currency: "USD"}).done(function(data){
+    /*var btcPrice = cryptcompareGetCoinPrice.getCoinPrice({coinSymbol: "BTC", currency: "USD"}).done(function(data){
     	//console.log(data);
     	currentPrice = data.USD;
     	cryptcompareGetCoinPrice.paintCoinPrice($("#coinPrice"), data, "USD");
-    });
+    });*/
 
    var _getPercentageChange = function(oldNumber, newNumber){
 		// works for decreasing numbers, 9, 6 == 66% decrease.
@@ -71,6 +71,7 @@ define(["cryptcompareGetCoinPrice", "numberUtilities", "jqueryValidate"], functi
         $.post("/ajax-internal.php", obj).done(function(data) {
             data = $.parseJSON(data);
             console.log(data)
+            window.location.href = window.location.origin + "/pages/predictions/prediction-choices.php";
             $(".error").html(data)
         }).fail(function(data) {
             $(".error").html(data)
