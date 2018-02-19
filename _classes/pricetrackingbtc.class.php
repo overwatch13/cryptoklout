@@ -2,7 +2,7 @@
 
 class PriceTrackingBtc extends Standards {
 	function getLatestBtc(){
-	    $sql = "SELECT * FROM pricetrackingbtc ORDER BY timestamp DESC LIMIT 1";
+	    $sql = "SELECT * FROM price_tracking_btc ORDER BY timestamp DESC LIMIT 1";
     	$query = $this->query($sql, 'fetch');
 	    	
 	    $array = array(

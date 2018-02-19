@@ -27,7 +27,7 @@ class SubmitRecurringCoinInfo extends Standards {
 	    $columnNames = substr($columnNames, 0, -2);
 	    $values = substr($values, 0, -2);
 	    
-		$sql = "INSERT INTO priceTrackingBTC (".$columnNames.") VALUES(".$values.")";
+		$sql = "INSERT INTO price_tracking_btc (".$columnNames.") VALUES(".$values.")";
 		$query = $this->query($sql);
 
 		$array = array(

@@ -11,7 +11,7 @@
           </div>
 
           <div class="col-lg-6">
-            <h1>A Crypto Social Experiment</h1>
+            <h1>Crypto Social Experiment</h1>
             <p class="hero-text">
               CryptoKlout.com is a free social platform that allows users and robots to make predictions on the future price of Bitcoin. Through advanced algorythms CryptoKlout is able to aggregate the predictor data into something useful all members can benefit from. 
             </p>

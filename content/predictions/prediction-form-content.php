@@ -1,10 +1,19 @@
 <!-- get btc price via db instead of JS, lower the api load -->
 <?php 
 //echo ROOT;
-include ROOT . "../../_classes/pricetrackingbtc.class.php";
+if($local){
+  include ROOT . "../../_classes/pricetrackingbtc.class.php";
+}else{
+  include ROOT . "_classes/pricetrackingbtc.class.php";  
+}
+
 
 $PriceTrackingBtc = new PriceTrackingBtc();
 $price = $PriceTrackingBtc->getLatestBtc();
+
+/*echo '<pre>';
+print_r($price);
+echo '</pre>';*/
 
 if($price['query'] && sizeof($price['query'])>0 && $price['query'][0]['PRICE'] !==""){
   $price = number_format($price['query'][0]['PRICE']);
