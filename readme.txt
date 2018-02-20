@@ -1,49 +1,39 @@
-################################################################################################
+WELCOME TO THE CRYPTOKLOUT PROJECT
 
-Documentation for Landy by Bootstrapious - https://bootstrapious.com, rel. 2017/10/10
+* - Download all of the files via filezilla, or directly through GIT account
+- We are using SourceTree with Atlassian for version control. 
 
-################################################################################################
+* - download wamp, assuming your using windows. 
 
-Hi,
+* - setup your virtual hosts via this tutorial.
+https://john-dugan.com/wamp-vhost-setup/
+"C:\wamp\bin\apache\Apache2.2.21\conf\httpd.conf"
+- Make sure this file is not commented out in there.
+Include conf/extra/httpd-vhosts.conf
 
-thank you for downloading. Have fun and tell your friends about us ;)
+Then follow the file you just uncommented
+"C:\wamp\bin\apache\Apache2.2.21\conf\extra\httpd-vhosts.conf"
+And add the following lines
+<VirtualHost *:80>
+    ServerName localhost.cryptoklout.com
+    DocumentRoot "C:\wamp\www\cryptoklout"
+</VirtualHost>
 
-Ondrej, Bootstrapious
+<VirtualHost *:443>
+    ServerName localhost.cryptoklout.com
+    DocumentRoot "C:\wamp\www\cryptoklout"
+</VirtualHost>
 
-
-CSS
-----------
-
-The theme stylesheet is css/style.default.css. If you want to make any changes, 
-you can do it here or better to override it in custom.css so you can update the original theme stylesheet if an updated is released. 
-Changing to another colour variant, is just a matter of replacing css/style.default.css with css/style.pink.css in index.html.
-
-Javascript
-----------
-
-Apart from the Bootstrap JS components, the majority of JS is located in /js/front.js. 
-
-
-Credits
----------
-
-- Botstrap 4.0.0-beta - http://getbootstrap.com
-- Font Awesome 4.7 - http://fontawesome.io/
-- Google Fonts - Open Sans
-- more in credits.txt.
+<VirtualHost *:80>
+    ServerName localhost.api.cryptoklout.com
+    DocumentRoot "C:\wamp\www\cryptoklout\api"
+</VirtualHost>
 
 
----------------------
- LICENSE CONDITIONS
----------------------
+* Add some entries to your windows host file
+C:\Windows\System32\drivers\etc\hosts
+127.0.0.1	localhost.cryptoprophets.io
+127.0.0.1	localhost.api.cryptoprophets.io
 
-You are completely free to use this template for your personal use or as a work for your client as 
-long as you keep the link at the template footer pointing to us and our partner. 
 
-If you would prefer removing the backlink from the theme footer, please donate (https://bootstrapious.com/donate) 
-to support themes' development. Suggested amount per template is $10. 
-Also, as a bonus for donors, I can provide you the SASS files for even easier template customization. Drop me a line at hello@bootstrapious.com after donating.
 
-However you cannot redistribute the template nor its derivatives on the internet - neither for free or commercially (e.g. selling it on template marketplace).
-
-Thank you for understanding and respecting the license conditions.
