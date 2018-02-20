@@ -1,0 +1,2 @@
+[19-Feb-2018 21:21:24 UTC] PHP Warning:  Missing argument 1 for Predictor::getPredictorPredictions(), called in /home/cryptoklout/public_html/content/phpviews/profile-page-logic.php on line 5 and defined in /home/cryptoklout/public_html/_classes/predictor/predictor.class.php on line 5
+[19-Feb-2018 21:21:30 UTC] PHP Warning:  Missing argument 1 for Predictor::getPredictorPredictions(), called in /home/cryptoklout/public_html/content/phpviews/profile-page-logic.php on line 5 and defined in /home/cryptoklout/public_html/_classes/predictor/predictor.class.php on line 5

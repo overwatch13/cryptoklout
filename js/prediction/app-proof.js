@@ -1,5 +1,7 @@
-define(["d3", "techan"], function (d3, techan) {
-   console.log("there is an error loading these libraries, I dont think I loaded them correctly. ");
+// move this folder under pages/ when at home.
 
-
+//"techan" // not working as an include right now
+define(["d3"], function (d3) {
+   
+   
 }); // END require

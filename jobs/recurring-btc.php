@@ -7,17 +7,14 @@ if(empty($_SERVER['DOCUMENT_ROOT'])){ //
 }
 
 include  "../config.php"; 
-include ROOT . "_classes/standards.class.php";
 include ROOT . "_classes/submitRecurringCoinInfo.class.php"; 
-
-//echo getcwd() . "\n";
-//exit;
 
 $data = file_get_contents("https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD");
 $data = json_decode($data, true);
-
+//print_r($data);
 $submitCoinInfo = new submitRecurringCoinInfo();
 $submitCoinInfo->submitBTC($data['RAW']['BTC']['USD']); // data.RAW.BTC.USD
 
+echo "success";
 
 ?>

@@ -2,7 +2,7 @@ define(["cryptcompareGetCoinPrice", "numberUtilities", "jqueryValidate"], functi
     //console.log("app-predictions-single-day")
     //cryptcompareGetallcoins.getAllCoins(); // When you want to go multi coin, you already set this up. 
 
-    var currentPrice;
+    var currentPrice = $("#currentPrice").val().replace(/,/g, '');
     $predictionPrice = $("#predictionPrice");
     $percentageInput = $("#percentageInput");
     $predictionReason = $("#predictionReason");
@@ -46,7 +46,7 @@ define(["cryptcompareGetCoinPrice", "numberUtilities", "jqueryValidate"], functi
             coinSymbol: "BTC",
             currencySymbol: "USD",
             currentPrice: currentPrice, 
-            predictedPrice: $predictionPrice.val(),
+            predictedPrice: $predictionPrice.val().replace(/,/g, ''),
             percentageDifference: $percentageInput.val(),
             reason: $predictionReason.val(),
         }
@@ -84,7 +84,7 @@ define(["cryptcompareGetCoinPrice", "numberUtilities", "jqueryValidate"], functi
     // ******* Click Events *************
     
     $predictionPrice.on("change", function(){
-    	var newNumber = $(this).val();
+    	var newNumber = $(this).val().replace(/,/g, '');
     	_changeColor(newNumber);
     	var percentChange = _getPercentageChange(currentPrice, newNumber);
     	var percentChangeRoundedHundreths = numberUtilities.round(percentChange, 2);
