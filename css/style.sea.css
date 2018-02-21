@@ -1846,3 +1846,102 @@ a.text-light:focus, a.text-light:hover {
 a.text-dark:focus, a.text-dark:hover {
   color: #1d2124 !important;
 }
+
+/*** Modal Popup  ***/
+.modal.modal-popup .modal-header {
+    background: #f5f5f5;
+	border-bottom: 1px solid #e9ecef;
+	padding: 15px 30px;
+}
+.modal.modal-popup button.close {
+    width: 56px;
+    height: 56px;
+}
+.modal.modal-popup  .modal-title {
+    font-weight: 700;
+}	
+.google-sign {
+background: #DC4B38;
+   padding: 10px 20px;
+   color: #fff;
+}
+.google-sign a {
+    display: block;
+	color: #fff;
+    text-align: center;
+}
+.google-sign .fa {
+color: #fff;
+font-size: 30px;
+}
+.google-sign a span{
+    vertical-align: top;
+    padding-top: 5px;
+	padding-left: 10px;
+	display: inline-block;
+}
+.google-sign a:hover {
+    text-decoration: none;
+}
+
+.facebook-sign {
+background: #395998;
+   padding: 10px 20px;
+   color: #fff;
+   position: relative;
+}
+.facebook-sign a {
+    display: block;
+	color: #fff;
+    text-align: center;
+}
+.facebook-sign .fa {
+color: #fff;
+font-size: 30px;
+}
+.facebook-sign a span{
+    vertical-align: top;
+    padding-top: 5px;
+	padding-left: 10px;
+	display: inline-block;
+}
+.facebook-sign a:hover {
+    text-decoration: none;
+}
+.facebook-sign .fb_iframe_widget {
+    opacity: 0;
+    height: 52px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    cursor: pointer;
+} 
+.facebook-sign .fb_iframe_widget span{
+    width: 100% !important;
+    height: 52px !important;
+}
+
+.twitter-sign {
+background: #55ACEE;
+   padding: 10px 20px;
+   color: #fff;
+} 
+.twitter-sign a {
+    display: block;
+	color: #fff;
+    text-align: center;
+}
+.twitter-sign .fa {
+color: #fff;
+font-size: 30px;
+}
+.twitter-sign a span{
+    vertical-align: top;
+    padding-top: 5px;
+	padding-left: 10px;
+	display: inline-block;
+}
+.twitter-sign a:hover {
+    text-decoration: none;
+}
