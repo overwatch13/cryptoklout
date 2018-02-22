@@ -1,4 +1,4 @@
-<?
+<?php
 
 class PredictionTimeLimitations extends Standards {
 	function getPredictorTimeLimitations($userId){
@@ -7,7 +7,7 @@ class PredictionTimeLimitations extends Standards {
 	    	
 	    $array = array(
 			'query'=> $query,
-			'sql'=>$sql,
+			'sqll'=>$sql,
 		);
 
 		return $array;

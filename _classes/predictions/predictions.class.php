@@ -58,5 +58,21 @@ class Predictions extends Standards {
 
 		return $array;
 	}
+
+	function getPredictionSingle($predictionId){
+	    $sql = "SELECT * FROM predictions_all_types where id = ".$predictionId." ";
+    	$query = $this->query($sql, 'fetch');
+	    	
+	    $array = array(
+			'query'=> $query,
+			'sql'=>$sql,
+			//'info'=>$info,
+			//'userId'=>$userId,
+			//'post'=>$post,
+			//'coinSymbol'=>$coinSymbol,
+		);
+
+		return $array;
+	}
 	
 }

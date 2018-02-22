@@ -1,5 +1,6 @@
 
-<?php include ROOT . "content/phpviews/profile-page-logic.php"; ?>
+<?php 
+include ROOT . "content/phpviews/profile-page-logic.php"; ?>
 <script>
     var userPredictions = <?php echo json_encode($masterArr); ?>
 </script>

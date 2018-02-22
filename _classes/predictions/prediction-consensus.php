@@ -3,7 +3,6 @@
 // This class wont need these includes when you run it from the predictions.class.php, that would cause an infinite loop.
 // you included them here because you are accessing this url directly via. 
 // http://cryptoklout.com/_classes/predictions/prediction-consensus.php  for direct logic testing. 
-require_once $_SERVER['DOCUMENT_ROOT'] . "/_classes/standards.class.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/_classes/predictions/predictions.class.php"; // new Predictions(); 
 
 class PredictionConsensus extends Standards {

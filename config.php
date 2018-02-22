@@ -7,18 +7,17 @@ $siteName = "cryptoklout";
 
 if($local==true){
 	// Define Local Routes
-	define ('ROOT', "/"); // HOME path C:\wamp\www\\cryptoklout\\
+	define ('ROOT', "C:\wamp64\www\cryptoklout\\"); // HOME path C:\wamp\www\\cryptoklout\\
 	$contentPath = "content\\"; 
 	$contentPathRoot = "root\\";
 	$cssJSPath = "\\cryptoklout\\";
 }
-else if(empty($_SERVER['DOCUMENT_ROOT'])){ // path when the server is running the script directly. 
+else if(empty($_SERVER['DOCUMENT_ROOT'])){ // From linux server perspective like a crontab request.
 	// define Remote Server routes
 	define ('ROOT', "/home/cryptoklout/public_html" . "/"); 	
 }
 else {
-	// define Remote Server routes
-	define ('ROOT', $_SERVER['DOCUMENT_ROOT'] . "/"); 	
+	define ('ROOT', $_SERVER['DOCUMENT_ROOT'] . "/"); // remote server path for public_html consumption.	
 	$cssJSPath = "/"; // you would need to verify this as correct
 	//$atPath = "/at/";
 	$contentPath = "content/"; 

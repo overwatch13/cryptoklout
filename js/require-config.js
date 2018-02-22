@@ -29,6 +29,13 @@ require.config({
 
         // Vendors NEW
         'select2' : '../node_modules/select2/dist/js/select2.min',
+        
+        /*'react': '../node_modules/react/cjs/react.development.min', // there is a cjs and a umd (Universal Module Definition) version, I dont think I am UMD. we are Asynchronous Module Definition (AMD)
+        'reactDOM': '../node_modules/react-dom/cjs/react-dom.development.min',*/
+        'react': '../node_modules/react/cjs/react.production.min', // there is a cjs and a umd (Universal Module Definition) version, I dont think I am UMD. we are Asynchronous Module Definition (AMD)
+        'reactDOM': '../node_modules/react-dom/cjs/react-dom.production.min',
+        'JSXTransformer': 'vendors/react/JSXTransformer-0.10.0',
+        'jsx': 'vendors/react/jsx',
 
         // VENDORS - New Data Tables and extensions, only way to get buttons working. 
         // we have a working version as datatables.net, but we have 'datatables' in all of our examples. 
@@ -90,11 +97,22 @@ require.config({
        },
        'front' : {
         'deps' : ['owlCarousel', 'jquery']
-       }
+       },
+       'react' : {
+        'deps' : ['jquery'],
+        'exports': "React"
+       },
+       'reactDOM' : {
+        'deps' : ['jquery']
+       },
+       'techan' : {
+        'deps' : ['d3']
+       },
     },
 });
 
-
+// "react", "reactDOM",
+// , React, ReactDOM
 require(["jquery", "jqueryUi", "bootstrap", "front", "owlCarousel", "select2", "blockui", ], function ($, jqueryUi, bootstrap, front, owlCarousel, select2, blockui) {
   $(document).ready(function(){
     require([ $('#requirePageSpecificJs').val() ]); // this is set in php, result: "/require-mturk.js" 

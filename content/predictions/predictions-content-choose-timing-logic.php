@@ -1,5 +1,4 @@
 <?php 
-
 include ROOT . "_classes/predictions/predictions-choose.class.php"; 
 $userId = 2; // fill this with dynamic information after you get login working.
 $PredictionTimeLimitationsClass = new PredictionTimeLimitations();

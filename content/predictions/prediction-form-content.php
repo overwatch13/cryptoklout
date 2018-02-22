@@ -1,14 +1,16 @@
 <!-- get btc price via db instead of JS, lower the api load -->
 <?php 
 //echo ROOT;
-if($local){
-  include ROOT . "../../_classes/pricetrackingbtc.class.php";
+/*if($local){
+  include ROOT . "_classes/pricetrackingbtc.class.php";
   include ROOT . "predictions/predictions-content-choose-timing-logic.php";
 }else{
-  include ROOT . "_classes/pricetrackingbtc.class.php";  
-  include ROOT . "content/predictions/predictions-content-choose-timing-logic.php";
-}
+  
+}*/
 
+
+include ROOT . "_classes/pricetrackingbtc.class.php";  
+include ROOT . "content/predictions/predictions-content-choose-timing-logic.php";
 
 $PriceTrackingBtc = new PriceTrackingBtc();
 $price = $PriceTrackingBtc->getLatestBtc(); // gets latest BTC price via php

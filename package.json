@@ -1,0 +1,28 @@
+{
+  "name": "cryptoklout",
+  "version": "1.0.0",
+  "description": "crypklout npm package manager",
+  "main": "index.js",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-tools": "^0.13.3",
+    "requirejs-react-jsx": "^1.0.2",
+    "select2": "^4.0.6-rc.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://overwatch13@github.com/overwatch13/cryptoklout.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/overwatch13/cryptoklout/issues"
+  },
+  "homepage": "https://github.com/overwatch13/cryptoklout#readme"
+}
