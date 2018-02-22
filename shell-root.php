@@ -17,9 +17,4 @@ include ROOT . $contentPath . $contentPathRoot . 'footerContent.php';
 include ROOT . $contentPath . $contentPathRoot . 'footerScripts.php';  
 ?>
 
-
-   
-    
-    
-    
    

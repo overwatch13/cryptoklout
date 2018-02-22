@@ -4,18 +4,7 @@ $local = true;
 $addr = $_SERVER['HTTP_HOST'];
 $local = preg_match('/localhost/', $addr);
 $siteName = "cryptoklout";
-$siteurl = "http://cryptoklout.com/";
-
-$servername = "localhost";
-$username = "cryptokl_user";
-$password = "F%hd&F36*cnhJt";
-$dbname = "cryptokl_main";
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+$siteurl = "https://$_SERVER[HTTP_HOST]/";
 
 if($local==true){
 	// Define Local Routes
@@ -50,4 +39,8 @@ if(!isset($metaKeywords)){
 }
 
 include ROOT . "_classes/standards.class.php";
+include ROOT . 'social/Google_Client.php';
+include ROOT . 'social/contrib/Google_Oauth2Service.php';
+include ROOT . "social/twitter/twitteroauth.php";
+include ROOT . "/sendgrid-php/sendgrid-php.php";
 /* EOF */
