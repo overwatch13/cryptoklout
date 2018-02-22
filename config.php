@@ -6,6 +6,7 @@ $local = preg_match('/localhost/', $addr);
 $siteName = "cryptoklout";
 $siteurl = ((substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https'?'https':'http').'://'.$_SERVER[HTTP_HOST].'/';
 
+
 if($local==true){
 	// Define Local Routes
 	define ('ROOT', "/"); // HOME path C:\wamp\www\\cryptoklout\\
