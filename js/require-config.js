@@ -65,8 +65,8 @@ require.config({
         'front' : 'front', // this came as the base js with the template. change this later on.
         "cryptcompareGetallcoins": "modules/cryptocompare/getallcoins",
         "cryptcompareGetCoinPrice": "modules/cryptocompare/getCoinPrice",
-
         "numberUtilities" : "modules/numberUtilities",
+        "dateUtilities" : "modules/dateUtilities",
 
         // **** pages ****
         // sometimes you may want to include an entire section or page somewhere else like a vm. so you can referance a page here.
@@ -76,7 +76,8 @@ require.config({
         'popper': "vendors/popper.min",
         'd3' : 'vendors/d3/d3.min', //  i dont think this is loading correctly right now. 
         'techan' : 'vendors/d3/techan', // This is a private library built on top of d3 for awesome stock charts, https://github.com/andredumas/techan.js
-
+        'chartJs' : 'vendors/chart-js/Chart.bundle.min',
+        'chartJsPluginAnnotation' : 'vendors/chart-js/chartjs-plugin-annotation.min',
     },
       
 
@@ -108,6 +109,10 @@ require.config({
        'techan' : {
         'deps' : ['d3']
        },
+/*       'chartJsPluginAnnotation' : {
+        'deps' : ['chart-js']
+       },*/
+       
     },
 });
 

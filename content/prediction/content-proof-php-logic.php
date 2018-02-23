@@ -3,9 +3,11 @@
 include ROOT . "_classes/predictions/predictions.class.php"; // gets 1 or more predictions
 include ROOT . "_classes/predictor/predictor.class.php"; // personal info
 include ROOT . "_classes/pricetrackingbtc.class.php"; // price tracking btc info.
+include ROOT . "_classes/dailyAverage.class.php"; // utility class which can calculate the daily average from a ton of data.
 
 $predictionId = null;
 $runPage = false;
+$payload = array();
 if(isset($_GET['id'])) {
 	$predictionId = $_GET["id"];
 	$Predictions = new Predictions(); 
@@ -16,6 +18,7 @@ if(isset($_GET['id'])) {
 	if($predictionSingleData == null || sizeof($predictionSingleData)==0){
 		// keep $runPage = false;
 	}else{
+		$payload['predictionInfo'] = $predictionSingleData;
 		$runPage = true;
 	}
 	
@@ -26,6 +29,7 @@ if($runPage){ // now that we now we are looking at some stuff, lets get some add
 	$predictorClass = new Predictor();
 	$predictorInfo = $predictorClass->getPredictorPersonalInformation($predictionSingleData['userId']);
 	$predictorPersonalInfo = $predictorInfo['query'];
+	$payload['predictorInfo'] = $predictorPersonalInfo;
 }
 
 // Get the proper BTC data, within a date range based on the timestamp of the predictions.
@@ -44,10 +48,34 @@ if($runPage){
 	$timeRange = array(
 		"beginTime" => date("Y-m-d H:i:s", $dateTimePast),
 		"endTime" => date("Y-m-d H:i:s", $dateTimeFuture),
+		"beginDay" => date("m/d/Y", $dateTimePast),
+		"endDay" => date("m/d/Y", $dateTimeFuture),
 	);
+	$payload['dateRangesOriginal'] = $timeRange;
 	$priceTrackingClass = new PriceTrackingBtc();
 	$priceTrackingRangeArr = $priceTrackingClass->getBtcBetweenTimestamp($timeRange);
 	$priceTrackingRangeArr = $priceTrackingRangeArr['query']; // gives you an array of btc data increments.
+	$payload['btcDataFromTimeRangeAll'] = $priceTrackingRangeArr;
+	// A 15 day spread returns about 900 btc price results, but we only need 1 number for each day. 
+	// The question is, do we take the highest, the lowest, the last number, or average of each day in order to retreive one number?
+	// This also might be slightly problematic as they could have succeeded in their prediction, but it does not display it properly in the graph because it is too generic to see. 
+
+	// Taking an average takes more work but would give you a closer number for a single day at least. 
+	// DAILY AVERAGE ATTEMPT.
+	$dailyAverageClass = new DailyAverage();
+	$dailyAverageResponse = $dailyAverageClass->createDailyAverage($priceTrackingRangeArr);
+	$payload['dailyAverageBtcArr'] = $dailyAverageResponse;
+
+	// Sometimes we specify a 20 day spread and we only have data for 7 of those days. 
+	// calculate a final array for the javascript to use, this way it does not fail, and always works based on the data that was actually retrieved. 
+	$payload['graphX'] = array();
+	$payload['graphY'] = array();
+	$key = 0;
+	foreach($dailyAverageResponse as $key=>$singleDate){ 
+		$payload['graphX'][] = $key;
+		$payload['graphY'][] = $singleDate;
+	}
+
 }
 
 // For testing
