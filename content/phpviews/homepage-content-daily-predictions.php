@@ -15,6 +15,7 @@ echo "</pre>";
 $pHtml = '<div class="hp-recent-prediction-container clear">';
 //$rp as $key => $pred
 for($i=0; $i<6; $i++){
+	if(isset($rp[$i]["userId"])) {
     //$pHtml .='<div class=""></div>';
     $pHtml .='<div class="hp-recent-pred-single">';
 	    $pHtml .='<ul class="list-group">';
@@ -41,5 +42,6 @@ for($i=0; $i<6; $i++){
 	    	}
 	    $pHtml .='</ul>';
     $pHtml .='</div>'; // end clear
+}
 }
 $pHtml .= "</div>";

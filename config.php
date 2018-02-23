@@ -4,6 +4,8 @@ $local = true;
 $addr = $_SERVER['HTTP_HOST'];
 $local = preg_match('/localhost/', $addr);
 $siteName = "cryptoklout";
+$siteurl = ((substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https'?'https':'http').'://'.$_SERVER[HTTP_HOST].'/';
+
 
 if($local==true){
 	// Define Local Routes
@@ -22,6 +24,7 @@ else {
 	//$atPath = "/at/";
 	$contentPath = "content/"; 
 	$contentPathRoot = "root/";
+	$contentPathsocial = "social/";
 }
 
 // Default Meta Information, if nothing else is set. 
@@ -36,4 +39,8 @@ if(!isset($metaKeywords)){
 }
 
 include ROOT . "_classes/standards.class.php";
+include ROOT . 'social/Google_Client.php';
+include ROOT . 'social/contrib/Google_Oauth2Service.php';
+include ROOT . "social/twitter/twitteroauth.php";
+include ROOT . "/sendgrid-php/sendgrid-php.php";
 /* EOF */
