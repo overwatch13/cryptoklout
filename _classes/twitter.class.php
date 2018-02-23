@@ -4,7 +4,7 @@ class Twitter extends Standards {
 	function twitterLogin() {
 		define('CONSUMER_KEY', 'et0ETfvrpbg9GMXwKK4syrCJE'); // YOUR CONSUMER KEY
 		define('CONSUMER_SECRET', 'sTSnCXv3muOv0YNPkAhlmJU4rB9bMujafG6Jb9wl4OXCexYNtu'); //YOUR CONSUMER SECRET KEY 
-		define('OAUTH_CALLBACK', 'http://cryptoklout.com/');  // Redirect URL 
+		define('OAUTH_CALLBACK', 'http://cryptoklout.com');  // Redirect URL 
 
 		if(isset($_GET['request']) && $_GET['request'] == "twitter")
 		{

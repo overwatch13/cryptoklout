@@ -4,7 +4,7 @@ $local = false;
 $addr = $_SERVER['HTTP_HOST'];
 $local = preg_match('/localhost/', $addr);
 $siteName = "cryptoklout";
-$siteurl = ((substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https'?'https':'http').'://'.$_SERVER[HTTP_HOST].'/';
+$siteurl = ((substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https'?'https':'http').'://'.$_SERVER["HTTP_HOST"].'/';
 
 
 if($local==true){
