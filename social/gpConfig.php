@@ -5,8 +5,8 @@ include ROOT . $contentPathsocial . 'contrib/Google_Oauth2Service.php'; // has a
 /*
  * Configuration and setup Google API
  */
-$clientId = ''; //Google client ID
-$clientSecret = ''; //Google client secret
+$clientId = '242654526823-bq03e8lr39tmu6pah8i5298bge2l9rgv.apps.googleusercontent.com'; //Google client ID
+$clientSecret = 'nyR-ZNad4taOcqGDGw11jz9c'; //Google client secret
 $redirectURL = 'http://cryptoklout.com'; //Callback URL
 
 //Call Google API

@@ -1,6 +1,6 @@
 <?php
 
-$local = true;
+$local = false;
 $addr = $_SERVER['HTTP_HOST'];
 $local = preg_match('/localhost/', $addr);
 $siteName = "cryptoklout";
