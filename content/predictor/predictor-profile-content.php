@@ -1,15 +1,14 @@
 
-<?php 
+<?php
 include ROOT . "content/phpviews/profile-page-logic.php"; ?>
 <script>
 var userPredictions = <?php echo json_encode($masterArr); ?>
 </script>
 
 
-<?php 
+<?php
 // echo "<pre style='font-size:11px;'>";
-// print_r($masterArr); 
-// print_r($_SESSION);
+// print_r($masterArr);
 // echo "</pre>";
 ?>
 
@@ -22,23 +21,18 @@ var userPredictions = <?php echo json_encode($masterArr); ?>
                 </div>
             </div>
         </div>
-    </section>        
+    </section>
 <?php else: ?>
     <section id="hero" class="section-small bg-gray">
     <div class="container">
     <div class="row">
-        <div class="col" style="margin-bottom:20px;">
-            <a href="/pages/predictions/prediction-choices.php" class="btn btn-primary navbar-btn btn-shadow btn-gradient pull-right">New Prediction</a>
-        </div>
-    </div>
-    <div class="row">
       <div class="col user-profile-container">
           <div class="profile-img-cont">
-            <div class="profile-img-rounded cursor-pointer " data-userid="2">
+            <div class="profile-img-rounded">
                 <img src="/img/avatar-5.jpg" width="100">
             </div>
           </div>
-          
+
           <div class="card-container">
               <div class="card user-profile-card pull-left">
                 <div class="card-body">
@@ -55,38 +49,58 @@ var userPredictions = <?php echo json_encode($masterArr); ?>
               <div class="card user-profile-card pull-left">
                 <div class="card-body">
                     <div class="card-title">Total Predictions</div>
-                    <div class="card-text"><?php echo sizeof($masterArr['predictionsTogether']); ?></div>
+                    <div class="card-text"><?php echo sizeof($masterArr['predictionsRawData']); ?></div>
                 </div>
             </div>
             <div class="card user-profile-card pull-left">
                 <div class="card-body">
                     <div class="card-title">Correct</div>
-                    <div class="card-text"></div>
+                    <div class="card-text"><?php echo $masterArr['correctPercent']; ?>%</div>
                 </div>
             </div>
-            
+
           </div>
-        
+
       </div>
     </div><!-- row -->
 
-    <!-- <div class="row" style="margin-top:40px;">
-        <div class="col">
-            <h3>Predictions</h3>
-            <div id="js-predictions-view"></div>
-      </div>
-    </div>-->
-
     <div class="row" style="margin-top:40px;">
         <div class="col">
-            <!-- emmet script div.date-line.clear>(div.date-box-container>(div.color-coded.bg-success+div.date-container>div.rotate{2-14-18}))*30 -->
-        <h5>All Predictions (BTC)</h5>
-        <div class="date-line clear">
-            <?php echo $predictionListHtml; ?>
-        </div><!-- .date-line -->
+          <h5>Future Predictions of Bitcoin</h5>
+          <div class="date-line clear">
+              <?php echo $masterArr['futurePredictions']; ?>
+          </div><!-- .date-line -->
         </div><!-- col -->
     </div><!-- .row date block -->
 
+    <div class="row" style="margin-top:40px;">
+        <div class="col">
+          <h5>Results</h5>
+          <div class="date-line clear">
+              <?php echo $masterArr['pastPredictions']; ?>
+          </div><!-- .date-line -->
+        </div><!-- col -->
+    </div><!-- .row date block -->
+
+    <div class="row" style="margin-top:40px;">
+        <div class="col">
+            <div class="accordianWrapper">
+                <span class="accordianTitle"><a href="#">Understanding a prediction block</a></span>
+                <div class="accordianContent">
+                  3d: the prediction will last for 3 days.
+                  <div class="">
+                    <i class="fas fa-long-arrow-alt-right up"></i>,<i class="fas fa-long-arrow-alt-right down"></i>: whether the person is predicting the price will go up or down in the timeframe.
+                  </div>
+                  W: what the price <span class="bold">was</span> at the time of the prediction. <br/>
+                  T: what the <span class="bold">target</span> price of the prediction is. (what they think it will be)<br/>
+                  P: what the <span class="bold">percentage</span> difference is between what the price was and what the person predicted will be.<br/>
+                  <!-- M: when the prediction was <span class="bold">made</span>. <br/>
+                  E: when the prediction <span class="bold">expires</span>, this is when we check to see whether it was successful for not.<br/> -->
+                  Success, Missed: After the prediction expires we check to see whether the prediction was successful or not.
+                </div>
+            </div>
+      </div>
+    </div>
 
     <div class="row" style="margin-top:40px;">
         <div class="col">
@@ -101,6 +115,3 @@ var userPredictions = <?php echo json_encode($masterArr); ?>
           </div><!-- col -->
     </div><!-- .row date block -->
 <?php endif; ?>
-
-
-

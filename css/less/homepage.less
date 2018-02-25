@@ -4,16 +4,20 @@
 //**** Recent predictions section on homepage ****
 .hp-recent-pred-single{
 	.predictor-img-rounded{
+		float:left;
     width: 60px;
 	height: 60px;
 	border-radius: 50%;
 	overflow: hidden;
-	margin:0 auto;
 	cursor:pointer;
 	}
 
 	.pred-img-cont{
 	    //background: #e9e9e9;
+	}
+	.pred-details{
+		float:left;
+		margin:20px 0 0 10px;
 	}
 
 	.pred-hide-small{
@@ -25,7 +29,7 @@
 	}
 }
 
-@media (min-width: 576px) { 
+@media (min-width: 576px) {
 	.hp-recent-pred-single{
 	    width: 46%;
 	    float: left;

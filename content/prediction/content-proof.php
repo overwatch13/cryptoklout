@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <h3>Prediction information</h3>
+                <h3>Prediction</h3>
                 <div class="chart-container" style="position: relative; max-width:700px;">
                     <canvas id="myChart"></canvas>
                 </div>
@@ -30,7 +30,7 @@
 
     </div>
 
-    <?php else: /* If the page cannot find the prediction it will display this message. */  ?>	
+    <?php else: /* If the page cannot find the prediction it will display this message. */  ?>
     <div class="container">
         <div class="row">
             <div class="col">
@@ -38,5 +38,5 @@
             </div>
         </div>
     </div>
-    <?php endif; ?>  
+    <?php endif; ?>
 </section>

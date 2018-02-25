@@ -1,15 +1,15 @@
-// NOTE: datatables wasnt working because jqueryUI, was not being loaded in the proper order in config, 
-// order does matter in the config require.config object 
-// The base path is decided based on the directory that the main.js is in. Since this is loaded first. 
-// Modules can only be referenced with folders, that are within the base path directory. 
+// NOTE: datatables wasnt working because jqueryUI, was not being loaded in the proper order in config,
+// order does matter in the config require.config object
+// The base path is decided based on the directory that the main.js is in. Since this is loaded first.
+// Modules can only be referenced with folders, that are within the base path directory.
 
-// ADDED TO ALL FILES. 
+// ADDED TO ALL FILES.
 require.config({
     baseUrl: '/js/',
-    urlArgs: "bust=v1",
+    urlArgs: "bust=v2",
     paths: {
         // VENDORS
-        'jquery': 'vendors/jquery-1.11.0', 
+        'jquery': 'vendors/jquery-1.11.0',
         'jqueryUi': 'vendors/jquery-ui.min',
         'bootstrap':'vendors/bootstrap/js/bootstrap.min',
         'owlCarousel' : "vendors/owl.carousel/owl.carousel.min",
@@ -23,13 +23,13 @@ require.config({
         'jCookie':'vendors/jquery.cookie',
         'hashtable':'vendors/jshashtable-3.0',
         'numberFormatter':'vendors/jquery.numberformatter-1.2.4.jsmin',
-        'polygonCreator':'vendors/polygon', // allows for polygon creation on a google map. 
+        'polygonCreator':'vendors/polygon', // allows for polygon creation on a google map.
         'polygonMapExtension':'vendors/maps.google.polygon.containsLatLng', // extends google.map.Polygon to include a containsLatLng() function.
         'platformJs': 'vendors/platform',
 
         // Vendors NEW
         'select2' : '../node_modules/select2/dist/js/select2.min',
-        
+
         /*'react': '../node_modules/react/cjs/react.development.min', // there is a cjs and a umd (Universal Module Definition) version, I dont think I am UMD. we are Asynchronous Module Definition (AMD)
         'reactDOM': '../node_modules/react-dom/cjs/react-dom.development.min',*/
         'react': '../node_modules/react/cjs/react.production.min', // there is a cjs and a umd (Universal Module Definition) version, I dont think I am UMD. we are Asynchronous Module Definition (AMD)
@@ -37,8 +37,8 @@ require.config({
         'JSXTransformer': 'vendors/react/JSXTransformer-0.10.0',
         'jsx': 'vendors/react/jsx',
 
-        // VENDORS - New Data Tables and extensions, only way to get buttons working. 
-        // we have a working version as datatables.net, but we have 'datatables' in all of our examples. 
+        // VENDORS - New Data Tables and extensions, only way to get buttons working.
+        // we have a working version as datatables.net, but we have 'datatables' in all of our examples.
         'datatables.net' : 'vendors/datatables/jquery.dataTables',
         'datatables.net-buttons' : 'vendors/datatables/dataTables.buttons',
         'datatables.net-buttons-flash' : 'vendors/datatables/buttons.flash',
@@ -67,6 +67,7 @@ require.config({
         "cryptcompareGetCoinPrice": "modules/cryptocompare/getCoinPrice",
         "numberUtilities" : "modules/numberUtilities",
         "dateUtilities" : "modules/dateUtilities",
+        "universalEvents" : "modules/universalEvents",
 
         // **** pages ****
         // sometimes you may want to include an entire section or page somewhere else like a vm. so you can referance a page here.
@@ -74,12 +75,12 @@ require.config({
 
         //** New Vendors ***/
         'popper': "vendors/popper.min",
-        'd3' : 'vendors/d3/d3.min', //  i dont think this is loading correctly right now. 
+        'd3' : 'vendors/d3/d3.min', //  i dont think this is loading correctly right now.
         'techan' : 'vendors/d3/techan', // This is a private library built on top of d3 for awesome stock charts, https://github.com/andredumas/techan.js
         'chartJs' : 'vendors/chart-js/Chart.bundle.min',
         'chartJsPluginAnnotation' : 'vendors/chart-js/chartjs-plugin-annotation.min',
     },
-      
+
 
     //  YOU STILL NEED TO INCLUDE SOME OF THE MAJOR ONES IN any of the define functions, such as EVENTS, if you are using them.
     // For some reason Jquery, does not need to be referenced individually, probably because it is in global scope.
@@ -109,18 +110,21 @@ require.config({
        'techan' : {
         'deps' : ['d3']
        },
+       'universalEvents' : {
+        'deps' : ['jquery']
+       },
 /*       'chartJsPluginAnnotation' : {
         'deps' : ['chart-js']
        },*/
-       
+
     },
 });
 
 // "react", "reactDOM",
 // , React, ReactDOM
-require(["jquery", "jqueryUi", "bootstrap", "front", "owlCarousel", "select2", "blockui", ], function ($, jqueryUi, bootstrap, front, owlCarousel, select2, blockui) {
+require(["jquery", "jqueryUi", "bootstrap", "universalEvents", "front", "owlCarousel", "select2", "blockui", ], function ($, jqueryUi, bootstrap, universalEvents, front, owlCarousel, select2, blockui) {
   $(document).ready(function(){
-    require([ $('#requirePageSpecificJs').val() ]); // this is set in php, result: "/require-mturk.js" 
+    require([ $('#requirePageSpecificJs').val() ]); // this is set in php, result: "/require-mturk.js"
   });
 });
 
@@ -128,10 +132,10 @@ require(["jquery", "jqueryUi", "bootstrap", "front", "owlCarousel", "select2", "
 
 /*// MODULES // OLD module paths from AT
 'events':'modules/events',
-'isOnScreen' : 'modules/isOnScreen', // used for homepage animation, things scrolling into view. 
+'isOnScreen' : 'modules/isOnScreen', // used for homepage animation, things scrolling into view.
 'ajaxHandlers': 'modules/ajaxHandlers',
 'ajaxObj': 'modules/ajaxHandlers-objects',
-'displayTableExcalibur': 'modules/displayTableExcalibur', 
+'displayTableExcalibur': 'modules/displayTableExcalibur',
 'template': 'modules/template', // template module to make functionality work.
 'templateCommon': 'modules/template-common-fetch', // common templates can be fetched and handled here.
 'printPreview': 'modules/printPreview',

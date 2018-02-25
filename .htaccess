@@ -1,8 +1,15 @@
 
 # Attempt to get cryptoklout.com/profile/0   actually fire cryptoklout.com/pages/predictor/main.php
-# than we will get the id at the end of the url, and use that to view the persons profile. 
+# than we will get the id at the end of the url, and use that to view the persons profile.
+Options -MultiViews
 RewriteEngine On
-RewriteBase /predictor
+#RewriteBase /predictor
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /pages/predictor/main\.php [L]
+
+# the below is working for predictor, but causes prediction to fail.
+#RewriteRule . /pages/predictor/main\.php [L]
+
+# The below is working for both of the pages we want. 
+RewriteRule ^predictor/([^/]+)$ /pages/predictor/main.php?id=$1 [L]
+RewriteRule ^prediction/([^/]+)$ /pages/prediction/proof.php?id=$1 [L]

@@ -1,7 +1,8 @@
 define([], function () {
-    console.log(userPredictions); // this data is coming from PHP for quicker response and load time. 
-    
-    // First attempt at displaying the information through JS. not very happy with this so far. 
+    console.log(userPredictions); // this data is coming from PHP for quicker response and load time.
+
+    // Currently not using this as a means of display. 
+    // First attempt at displaying the information through JS. not very happy with this so far.
     var _paintPredictions = function(){
         var html= $("</div>");
         for(var key in userPredictions){
@@ -27,7 +28,7 @@ define([], function () {
             }else{
                 keyHolder = "";
             }
-            
+
             // Now put in the meat of each prediction
             if(userPredictions.hasOwnProperty(keyHolder)){
                 var predictionTypeArr = userPredictions[keyHolder]; // sets the array for a type like "pred1": [{pred}, {pred}]
@@ -39,19 +40,14 @@ define([], function () {
                 html.append(htmlT); // adds the section to the main html block.
             }
         }
-        
+
         $("#js-predictions-view").append(html);
     };
-    
-    // ***** click events and page initialization ******
-    // temporary way to link to a prediction page. 
-    $(".date-box-container").on("click", function(){
-        window.location.href = window.location.origin + "/pages/prediction/proof.php?id=12";
-    });
-    
+
+
     /*if(userPredictions){
      _paintPredictions();
     }*/
-   
-    
+
+
 }); // END require

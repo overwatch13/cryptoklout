@@ -1,94 +1,102 @@
 @import "mixins";
 @import "variables";
 
-section{
-    padding: 60px 0;
+section {
+  padding: 60px 0;
 }
 
 .clear {
-    .clearfix;
- }
- .hide{
-    display:none;
- }
-h5{
-    font-size: 1.10rem;
-    font-weight:500;
-}
-p{
-	font-size:14px;
-	margin-bottom:0rem;
+  .clearfix;
 }
 
-.form-group{
-	&.small-width{
-		max-width:140px;
-		float:left;
-		margin-right:20px;
-	}
+.hide {
+  display: none;
 }
 
-.green-text{
-	color:green !important;
+h5 {
+  font-size: 1.10rem;
+  font-weight: 500;
 }
 
-.red-text{
-	color:red !important;
+p {
+  font-size: 14px;
+  margin-bottom: 0;
 }
-.text-color-main{
-    color: @main-color;
+.bold{
+  font-weight:bold;
 }
-.text-color-main-dark{
-    color: @main-color-dark;
-}
-
-
-.text-bold{
-    font-weight:bold;
-}
-
-.cursor-pointer{
-    cursor:pointer;
+.form-group {
+  &.small-width {
+    max-width: 140px;
+    float: left;
+    margin-right: 20px;
+  }
 }
 
-
-.rotate { /* Add this as a mixin !! */
-
-    /* Safari */
-    -webkit-transform: rotate(-45deg);
-    
-    /* Firefox */
-    -moz-transform: rotate(-45deg);
-    
-    /* IE */
-    -ms-transform: rotate(-45deg);
-    
-    /* Opera */
-    -o-transform: rotate(-45deg);
-    
-    
-
-}
-.card-body{
-    padding: 1.0rem;
+.green-text {
+  color: green !important;
 }
 
-label.error{
-    color: #dc3545;
-    font-size:12px;
-    margin-top:3px;
+.red-text {
+  color: red !important;
+}
+
+.text-color-main {
+  color: @main-color;
+}
+
+.text-color-main-dark {
+  color: @main-color-dark;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.rotate {
+  /* Add this as a mixin !! */
+  /* Safari */
+  -webkit-transform: rotate(-45deg);
+  /* Firefox */
+  -moz-transform: rotate(-45deg);
+  /* IE */
+  -ms-transform: rotate(-45deg);
+  /* Opera */
+  -o-transform: rotate(-45deg);
+}
+
+.card-body {
+  padding: 1.0rem;
+}
+
+label.error {
+  color: #dc3545;
+  font-size: 12px;
+  margin-top: 3px;
 }
 
 footer.main-footer {
-    padding: 50px 0 0;
-    overflow-x: hidden;
+  padding: 50px 0 0;
+  overflow-x: hidden;
 }
 
 footer.main-footer .copyrights {
-     margin-top: 0px; 
+  margin-top: 0;
 }
 
-.welcome-nav-msg{
-        padding: 14px 10px 0 10px;
-    font-size:14px;
+.welcome-nav-msg {
+  padding: 14px 10px 0;
+  font-size: 14px;
+}
+
+.accordianContent{
+  display:none;
+  border:1px solid #ccc;
+  padding:5px 10px;
+  border-radius: 5px;
+  background:#fff;
 }

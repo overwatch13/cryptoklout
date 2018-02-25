@@ -1,11 +1,11 @@
 <?php
 
-$local = true; 
-$myLocalPath = "/Users/williamhowley/Desktop/websites/cryptoklout/"; // change this based on where your local project is. 
+$local = false; 
+$myLocalPath = "/Users/williamhowley/Desktop/websites/cryptoklout/"; // change this based on where your local project is.
 $addr = $_SERVER['HTTP_HOST'];
 $local = preg_match('/localhost/', $addr);
 $siteName = "cryptoklout";
-// Was not being recognized in certain files due to scope issues. 
+// Was not being recognized in certain files due to scope issues.
 $GLOBALS['siteurl'] = ((substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https'?'https':'http').'://'.$_SERVER["HTTP_HOST"].'/';
 
 
@@ -17,24 +17,24 @@ if($local==true){
 	// "/cryptoklout/" <- failed similar to to the first attempt
 	// $_SERVER['DOCUMENT_ROOT']."/cryptoklout/" <- identical output to attempt 1, same as __DIR__
 
-	$contentPath = "content/"; 
+	$contentPath = "content/";
 	$contentPathRoot = "root/";
 	$cssJSPath = "/cryptoklout/";
 }
 else if(empty($_SERVER['DOCUMENT_ROOT'])){ // From linux server perspective like a crontab request.
 	// define Remote Server routes
-	define ('ROOT', "/home/cryptoklout/public_html" . "/"); 	
+	define ('ROOT', "/home/cryptoklout/public_html" . "/");
 }
 else {
-	define ('ROOT', $_SERVER['DOCUMENT_ROOT'] . "/"); // remote server path for public_html consumption.	
+	define ('ROOT', $_SERVER['DOCUMENT_ROOT'] . "/"); // remote server path for public_html consumption.
 	$cssJSPath = "/"; // you would need to verify this as correct
 	//$atPath = "/at/";
-	$contentPath = "content/"; 
+	$contentPath = "content/";
 	$contentPathRoot = "root/";
 	$contentPathsocial = "social/";
 }
 
-// Default Meta Information, if nothing else is set. 
+// Default Meta Information, if nothing else is set.
 if(!isset($metaTitle)){
 	$metaTitle = "CryptoKlout.com is the official score for people who make predictions about CryptoCurrency trends";
 }

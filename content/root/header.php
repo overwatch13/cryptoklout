@@ -6,7 +6,7 @@
     <title><?php print $metaTitle; ?></title>
     <meta name="description" content="<?php print $metaDescription; ?>">
     <meta name="keywords" content="<?php print $metaKeywords; ?>">
-    
+
     <?php if(isset($ogUrl)){ ?>
     <meta property="og:url" content="<?php echo $ogUrl; ?>" />
     <?php } ?>
@@ -40,6 +40,10 @@
     <link rel="stylesheet" href="/js/vendors/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome CSS-->
     <link rel="stylesheet" href="/js/vendors/font-awesome/css/font-awesome.min.css">
+
+    <!-- temp fix to get latest -->
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
     <!-- Custom Font Icons CSS-->
     <link rel="stylesheet" href="/css/landy-iconfont.css">
     <!-- Google fonts - Open Sans-->
@@ -47,12 +51,12 @@
     <!-- owl carousel-->
     <link rel="stylesheet" href="/js/vendors/owl.carousel/assets/owl.carousel.css">
     <link rel="stylesheet" href="/js/vendors/owl.carousel/assets/owl.theme.default.css">
-    
+
     <!-- theme stylesheet-->
     <!-- <link rel="stylesheet" href="/css/style.default.css" id="theme-stylesheet"> -->
     <link rel="stylesheet" href="/css/style.sea.css">
-    
-    <!-- for search and select -->    
+
+    <!-- for search and select -->
     <link rel="stylesheet" href="/node_modules/select2/dist/css/select2.min.css">
 
     <!-- Custom stylesheet - for your changes-->
@@ -62,7 +66,7 @@
     <link rel="stylesheet" href="/css/less/media-queries.css">
 
     <!-- php dynamic css additions - page specific -->
-    <?php 
+    <?php
     if(isset($cssSpecific)){
         foreach($cssSpecific as $value){
             echo '<link rel="stylesheet" href="/css/' . $value . '" type="text/css">';
