@@ -7,6 +7,7 @@ class Custom extends Standards {
 		$query = $this->query($selectData, 'fetch');
 		if(count($query) > 0) {
 			$_SESSION['email'] = $query[0]['email'];
+			$_SESSION['userId'] = $query[0]['id'];
 			return header("Location: /");
 		}
 		else {

@@ -4,10 +4,7 @@ include ROOT . "_classes/predictor/predictor.class.php"; // Predictor() class
 
 $idFound = false;
 $predictorFound = false;
-$masterArr = array(
-	"predictorInfo"=>array(),
-	"predictions"=>array(),
-); // rename this, but currently used for storing all predictions.
+$masterArr = array(); // rename this, but currently used for storing all predictions.
 
 //*** GET user id from  /predictor/xxxxx ****
 $url = $_SERVER['REQUEST_URI'];

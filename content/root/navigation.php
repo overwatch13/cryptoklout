@@ -13,6 +13,13 @@ include ROOT . "content/phpviews/navigation-view-helper.php";
             <?php if($navigationConfirmationMessageOn){ echo $navigationMessage; } ?>
             <li class="nav-item"><a href="/pages/trends/main.php" class="nav-link">Trends</a></li>
             <li class="nav-item"><a href="/pages/ranks/sort.php" class="nav-link">Ranks</a></li>
+            
+            <?php if(isset($_SESSION) && isset($_SESSION['email'])){ ?>
+              <!-- if the user is logged in than offer them ability to make a new prediction. -->
+              <li class="nav-item"><a href="/predictor/<?php echo $_SESSION['userId'];?>" class="nav-link">Profile</a></li>
+               <li class="nav-item"><a href="/pages/predictions/prediction-choices.php" class="nav-link">New Prediction</a></li>
+            <?php } ?>
+            
             <li class="nav-item" style="padding: .5rem 1rem;"> 
               <?php // for testing
               // echo '<pre style="font-size:11px;">';

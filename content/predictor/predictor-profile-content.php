@@ -7,12 +7,13 @@ var userPredictions = <?php echo json_encode($masterArr); ?>
 
 
 <?php 
-echo "<pre style='font-size:11px;'>";
-print_r($masterArr); 
-echo "</pre>";
+// echo "<pre style='font-size:11px;'>";
+// print_r($masterArr); 
+// print_r($_SESSION);
+// echo "</pre>";
 ?>
 
-<?php if(!$predictorFound): ?>
+<?php if(!$masterArr['predictorFound']): ?>
     <section>
         <div class="container">
             <div class="row">
@@ -42,25 +43,25 @@ echo "</pre>";
               <div class="card user-profile-card pull-left">
                 <div class="card-body">
                     <div class="card-title">CryptoKlout Score</div>
-                    <div class="card-text text-success">785</div>
+                    <div class="card-text text-success"></div>
                 </div>
             </div>
             <div class="card user-profile-card pull-left">
                 <div class="card-body">
                     <div class="card-title">Better than</div>
-                    <div class="card-text">83%</div>
+                    <div class="card-text"></div>
                 </div>
             </div>
               <div class="card user-profile-card pull-left">
                 <div class="card-body">
                     <div class="card-title">Total Predictions</div>
-                    <div class="card-text">54</div>
+                    <div class="card-text"><?php echo sizeof($masterArr['predictionsTogether']); ?></div>
                 </div>
             </div>
             <div class="card user-profile-card pull-left">
                 <div class="card-body">
                     <div class="card-title">Correct</div>
-                    <div class="card-text">62%</div>
+                    <div class="card-text"></div>
                 </div>
             </div>
             
@@ -79,7 +80,7 @@ echo "</pre>";
     <div class="row" style="margin-top:40px;">
         <div class="col">
             <!-- emmet script div.date-line.clear>(div.date-box-container>(div.color-coded.bg-success+div.date-container>div.rotate{2-14-18}))*30 -->
-        <h5>Single Day Predictions (BTC)</h5>
+        <h5>All Predictions (BTC)</h5>
         <div class="date-line clear">
             <?php echo $predictionListHtml; ?>
         </div><!-- .date-line -->
