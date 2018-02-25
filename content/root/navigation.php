@@ -1,5 +1,6 @@
 <?php
 include ROOT . "jobs/loginAuth.php";
+include ROOT . "content/phpviews/navigation-view-helper.php";
 ?> 
 
 
@@ -9,18 +10,26 @@ include ROOT . "jobs/loginAuth.php";
         <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><span></span><span></span><span></span></button>
         <div id="navbarSupportedContent" class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto align-items-start align-items-lg-center" style="margin-right:10px;">
+            <?php if($navigationConfirmationMessageOn){ echo $navigationMessage; } ?>
             <li class="nav-item"><a href="/pages/trends/main.php" class="nav-link">Trends</a></li>
             <li class="nav-item"><a href="/pages/ranks/sort.php" class="nav-link">Ranks</a></li>
-          </ul>
-          <div class="navbar-text">               
+            <li class="nav-item" style="padding: .5rem 1rem;"> 
+              <?php // for testing
+              // echo '<pre style="font-size:11px;">';
+              // print_r($_SESSION);
+              // echo '</pre>';
+              ?>
+
             <?php if(!empty($_SESSION['email'])) { ?>
-				Welcome, <?php echo $_SESSION['email']; ?> <a href="<?php echo $siteurl; ?>logout.php" class="btn btn-primary navbar-btn btn-shadow btn-gradient">Logout</a>
-			<?php } else if(!empty($_SESSION['fname'])) { ?> 
-				Welcome, <?php echo $_SESSION['fname']; ?> <a href="<?php echo $siteurl; ?>logout.php" class="btn btn-primary navbar-btn btn-shadow btn-gradient">Logout</a>
-			<?php } else { ?>
-				<a href="#" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary navbar-btn btn-shadow btn-gradient">Login</a>
-			<?php } ?>
-          </div>
+              <span class='welcome-nav-msg'>Welcome, <?php echo $_SESSION['email']; ?></span> <a href="<?php echo $siteurl; ?>logout.php" class="btn btn-primary navbar-btn btn-shadow btn-gradient">Logout</a>
+            <?php } else if(!empty($_SESSION['fname'])) { ?> 
+              Welcome, <?php echo $_SESSION['fname']; ?> <a href="<?php echo $siteurl; ?>logout.php" class="btn btn-primary navbar-btn btn-shadow btn-gradient">Logout</a>
+            <?php } else { ?>
+              <a href="#" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary navbar-btn btn-shadow btn-gradient">Login</a>
+            <?php } ?>
+            </li>
+
+          </ul>
         </div>
       </nav>
     </header>
@@ -38,21 +47,21 @@ include ROOT . "jobs/loginAuth.php";
                 <label for="fullname">Full Name</label>
                 <input type="text" name="fullname" placeholder="Full Name" id="fullname">
               </div>-->
-				<?php
-				if(isset($_REQUEST['error']) && $_REQUEST['error'] == 'login') {
-					echo "<div class='alert alert-danger text-center'>Invalid login.</div>";
-				}
-				?>
-				<?php
-				if(isset($_REQUEST['error']) && $_REQUEST['error'] == 'registeral') {
-					echo "<div class='alert alert-info text-center'>Already registered.</div>";
-				}
-				?>
-				<?php
-				if(isset($_REQUEST['success']) && $_REQUEST['success'] == 'activation') {
-					echo "<div class='alert alert-success text-center'>We have sent an activation link on your email.</div>";
-				}
-				?>
+      				<?php
+      				if(isset($_REQUEST['error']) && $_REQUEST['error'] == 'login') {
+      					echo "<div class='alert alert-danger text-center'>Invalid login.</div>";
+      				}
+      				?>
+      				<?php
+      				if(isset($_REQUEST['error']) && $_REQUEST['error'] == 'registeral') {
+      					echo "<div class='alert alert-info text-center'>Already registered.</div>";
+      				}
+      				?>
+      				<?php
+      				if(isset($_REQUEST['success']) && $_REQUEST['success'] == 'activation') {
+      					echo "<div class='alert alert-success text-center'>We have sent an activation link on your email.</div>";
+      				}
+      				?>
               <div class="form-group">
                 <label for="username">Email Address</label>
                 <input type="email" name="email" required placeholder="Enter your email">

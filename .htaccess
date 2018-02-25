@@ -1,0 +1,8 @@
+
+# Attempt to get cryptoklout.com/profile/0   actually fire cryptoklout.com/pages/predictor/main.php
+# than we will get the id at the end of the url, and use that to view the persons profile. 
+RewriteEngine On
+RewriteBase /predictor
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /pages/predictor/main\.php [L]

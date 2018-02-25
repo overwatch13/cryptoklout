@@ -20,6 +20,7 @@ class Custom extends Standards {
 		$query = $this->query($selectData, 'fetch');
 		if(count($query) > 0) {
 			return header('location:'.$siteurl.'?error=registeral');
+			// This is where you would need to do something to tell the user that the account already exists. 
 		}
 		else {
 			$queryR="INSERT INTO user(email,password,login_type) VALUES ('$email','".$pass."', 'custom')";
@@ -32,9 +33,10 @@ class Custom extends Standards {
 			$apiKey = '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';
 			$sendgridId = new \SendGrid($apiKey);
 			$to = new SendGrid\Email('test', $toEmail);
-			$from = new SendGrid\Email('klout', 'brian@mcbridedev.com');
+			$from = new SendGrid\Email('CryptoKlout', 'cryptoklout@gmail.com');
 			$subject = 'User Registration Activation Email';
 			$email_body = $content;
+			// Create an email class, and run this through the class so it is part of a standard template.
 			$htmlWrapper = "<html><body>$email_body</body></html>";
 			$content = new SendGrid\Content('text/html', $htmlWrapper);
 			$mail = new SendGrid\Mail($from, $subject, $to, $content);
@@ -56,7 +58,7 @@ class Custom extends Standards {
 			$sendgridId = new \SendGrid($apiKey);
 			//Student Notification Email - Login Details
 			  $to = new SendGrid\Email('test', $email);
-			  $from = new SendGrid\Email('klout', 'brian@mcbridedev.com');
+			  $from = new SendGrid\Email('Cryptoklout', 'cryptoklout@gmail.com');
 			  $subject = 'Forgot password Email';
 			  $email_body = $content;
 			  $htmlWrapper = "<html><body>$email_body</body></html>";

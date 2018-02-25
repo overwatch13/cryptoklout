@@ -31,7 +31,7 @@
 
   window.fbAsyncInit = function() {
   FB.init({
-    appId      : '367992747007959', // facebook app id
+    appId      : '717948138411199', // facebook app id
     cookie     : true,  // enable cookies to allow the server to access
                         // the session
     xfbml      : true,  // parse social plugins on this page
@@ -51,9 +51,9 @@
   // These three cases are handled in the callback function.
 
     if($('#is_facebook').val() == null){
-      console.log('fecebook not enabled');
+      console.log('facebook not enabled');
     } else {
-      console.log('fecebook enabled');
+      console.log('facebook enabled');
     }
 
     // FB.getLoginStatus(function(response) {

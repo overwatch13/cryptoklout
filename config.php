@@ -1,18 +1,25 @@
 <?php
 
-$local = false;
+$local = true; 
+$myLocalPath = "/Users/williamhowley/Desktop/websites/cryptoklout/"; // change this based on where your local project is. 
 $addr = $_SERVER['HTTP_HOST'];
 $local = preg_match('/localhost/', $addr);
 $siteName = "cryptoklout";
-$siteurl = ((substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https'?'https':'http').'://'.$_SERVER["HTTP_HOST"].'/';
+// Was not being recognized in certain files due to scope issues. 
+$GLOBALS['siteurl'] = ((substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https'?'https':'http').'://'.$_SERVER["HTTP_HOST"].'/';
 
 
 if($local==true){
 	// Define Local Routes
-	define ('ROOT', "C:\wamp64\www\cryptoklout\\"); // HOME path C:\wamp\www\\cryptoklout\\
-	$contentPath = "content\\"; 
-	$contentPathRoot = "root\\";
-	$cssJSPath = "\\cryptoklout\\";
+	define ('ROOT', $myLocalPath ); // HOME path C:\wamp\www\\cryptoklout\\
+	// "\Users\williamhowley\Desktop\websites\cryptoklout\\"<- cant get that to work.
+	// "/Users/williamhowley/Desktop/websites/cryptoklout/" <- throws less error, but turns back to back slashes weird!
+	// "/cryptoklout/" <- failed similar to to the first attempt
+	// $_SERVER['DOCUMENT_ROOT']."/cryptoklout/" <- identical output to attempt 1, same as __DIR__
+
+	$contentPath = "content/"; 
+	$contentPathRoot = "root/";
+	$cssJSPath = "/cryptoklout/";
 }
 else if(empty($_SERVER['DOCUMENT_ROOT'])){ // From linux server perspective like a crontab request.
 	// define Remote Server routes

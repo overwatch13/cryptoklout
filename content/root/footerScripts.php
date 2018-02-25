@@ -12,7 +12,7 @@
 
 	<!-- Note, we would need something to replace the /cryptowizard/ prefix so this works when putting online -->
 	<script data-main="/js/require-config.js" src="/js/vendors/require.minified.js"></script>
-	 <script src="<?php echo $siteurl; ?>social/social.js"></script>
+	<script src="<?php echo $siteurl; ?>social/social.js"></script>
     <script>
 		var siteurl = "<?php echo $siteurl; ?>";
     </script>

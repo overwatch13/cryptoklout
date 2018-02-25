@@ -12,7 +12,12 @@ class Google extends Standards {
 						 */
 						$clientId = '242654526823-bq03e8lr39tmu6pah8i5298bge2l9rgv.apps.googleusercontent.com'; //Google client ID
 						$clientSecret = 'nyR-ZNad4taOcqGDGw11jz9c'; //Google client secret
-						$redirectURL = "http://cryptoklout.com";//((substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https'?'https':'http').'://'.$_SERVER[HTTP_HOST].'/';
+						$redirectURL = 'http://cryptoklout.com';
+
+						// The below is failing, but it should be working to return us to the localhost. 
+						// says uri mistmatch.  // MAybe it is not allowed to hit the local url or something. 
+						// I have indeed added this to the authorized redirect urls. 
+						//((substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https'?'https':'http').'://'.$_SERVER["HTTP_HOST"].'/';
 
 						//Call Google API
 						$gClient = new Google_Client();

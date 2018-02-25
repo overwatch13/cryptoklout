@@ -5,8 +5,8 @@ class Standards {
 		you added a password in 
 		C:\wamp\apps\phpmyadmin3.4.5\config.inc.php*/
 		// REMOTE REAL DATABASE
-		protected $host = 'localhost';
-		protected $host_user = 'cryptokl_user';
+		protected $host = 'localhost'; // within phpmyadmin, user must have "localhost" as the Host Name
+		protected $host_user = 'cryptokl_user2';
 		protected $host_pw = 'F%hd&F36*cnhJt';
 		protected $database = 'cryptokl_main';
 

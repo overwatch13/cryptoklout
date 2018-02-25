@@ -1,1 +1,123 @@
-.group{zoom:1}.group:before,.group:after{content:"";display:table}.group:after{clear:both}.clearfix,.clear{display:block;zoom:1}.clearfix:after,.clear:after{content:" ";display:block;font-size:0;height:0;clear:both;visibility:hidden}.vertical-align{position:relative;top:50%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}section{padding:60px 0}.clear{display:block;zoom:1}.clear:after{content:" ";display:block;font-size:0;height:0;clear:both;visibility:hidden}.hide{display:none}h5{font-size:1.1rem;font-weight:500}p{font-size:14px;margin-bottom:0}.form-group.small-width{max-width:140px;float:left;margin-right:20px}.green-text{color:green!important}.red-text{color:red!important}.text-color-main{color:#4cb8c4}.text-color-main-dark{color:#0d9bab}.text-bold{font-weight:700}.cursor-pointer{cursor:pointer}.rotate{-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg);-ms-transform:rotate(-45deg);-o-transform:rotate(-45deg)}.card-body{padding:1rem}label.error{color:#dc3545;font-size:12px;margin-top:3px}footer.main-footer{padding:50px 0 0;overflow-x:hidden}footer.main-footer .copyrights{margin-top:0}
+/*//test*/
+/*---------------------------------------------------
+LESS Elements 0.9
+---------------------------------------------------
+A set of useful LESS mixins
+More info at: http://lesselements.com
+---------------------------------------------------*/
+.group {
+  zoom: 1;
+}
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+.group:after {
+  clear: both;
+}
+.clearfix,
+.clear {
+  display: block;
+  zoom: 1;
+}
+.clearfix:after,
+.clear:after {
+  content: " ";
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+/*
+    USAGE: allows for hex color to convert to RGBA, mainly used to have TEXT opacity 100% with a opaque background behind it.
+.rgbaColorIn(#b1b1b1, 50%);
+     background-color: @result;
+*/
+section {
+  padding: 60px 0;
+}
+.clear {
+  display: block;
+  zoom: 1;
+}
+.clear:after {
+  content: " ";
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.hide {
+  display: none;
+}
+h5 {
+  font-size: 1.10rem;
+  font-weight: 500;
+}
+p {
+  font-size: 14px;
+  margin-bottom: 0rem;
+}
+.form-group.small-width {
+  max-width: 140px;
+  float: left;
+  margin-right: 20px;
+}
+.green-text {
+  color: green !important;
+}
+.red-text {
+  color: red !important;
+}
+.text-color-main {
+  color: #4CB8C4;
+}
+.text-color-main-dark {
+  color: #0d9bab;
+}
+.text-bold {
+  font-weight: bold;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.rotate {
+  /* Add this as a mixin !! */
+  /* Safari */
+  -webkit-transform: rotate(-45deg);
+  /* Firefox */
+  -moz-transform: rotate(-45deg);
+  /* IE */
+  -ms-transform: rotate(-45deg);
+  /* Opera */
+  -o-transform: rotate(-45deg);
+}
+.card-body {
+  padding: 1.0rem;
+}
+label.error {
+  color: #dc3545;
+  font-size: 12px;
+  margin-top: 3px;
+}
+footer.main-footer {
+  padding: 50px 0 0;
+  overflow-x: hidden;
+}
+footer.main-footer .copyrights {
+  margin-top: 0px;
+}
+.welcome-nav-msg {
+  padding: 14px 10px 0 10px;
+  font-size: 14px;
+}
