@@ -12,17 +12,17 @@ $returnData = $googleData->googleLogin();
 
 if(isset($_POST['submitLogin'])) {
 	$customData = new Custom();
-	$customLogin = $customData->customLogin($_POST["email"],md5($_POST["password"]));
+	$customLogin = $customData->customLogin($_POST["email"],$_POST["password"]);
 }
 
 /* Register */
 
 if(isset($_POST['submitRegister'])) {
 	$customData = new Custom();
-	$customLogin = $customData->customRegister($_POST["email"],md5($_POST['password']));
+	$customLogin = $customData->customRegister($_POST["email"],$_POST['password']);
 }
 
-/* Forgot Passwrod */ 
+/* Forgot Passwrod */
 
 if(isset($_POST['submitForgot']) && $_POST["email"] != "") {
 	$customData = new Custom();

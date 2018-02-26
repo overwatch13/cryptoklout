@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 class Predictions extends Standards {
@@ -14,16 +14,16 @@ class Predictions extends Standards {
 		$predictedPrice = $post['predictedPrice'];
 		$percentageDifference = $post['percentageDifference'];
 		$reason = $post['reason'];
-		
+
 		// calculated field based on current timestamp, and than we calculate the future expire date.
 	    $today = date("Y-m-d H:i:s");
         $stringFutureDays = $today." +".$predictionDays." days";
         $expires = date("Y-m-d H:i:s", strtotime($stringFutureDays));
-		
+
 		// ", coinSymbol, currencySymbol, currentPrice, predictedPrice, percentageDifference, reason"
-		$columnNames = "userId, predictionName, predictionDays, coinSymbol, currencySymbol, currentPrice, predictedPrice, percentageDifference, reason, expires"; // , 
+		$columnNames = "userId, predictionName, predictionDays, coinSymbol, currencySymbol, currentPrice, predictedPrice, percentageDifference, reason, expires"; // ,
 		// make sure string values have quotes around them ''
-		$values = $userId.", '".$predictionName."', ".$predictionDays.", '".$coinSymbol."', '".$currencySymbol."', ".$currentPrice.", ".$predictedPrice.", ".$percentageDifference.", '".$reason."', '". $expires."'"; 
+		$values = $userId.", '".$predictionName."', ".$predictionDays.", '".$coinSymbol."', '".$currencySymbol."', ".$currentPrice.", ".$predictedPrice.", ".$percentageDifference.", '".$reason."', '". $expires."'";
 		$sql = "INSERT INTO predictions_all_types (".$columnNames.") VALUES(".$values.")";
 		$query = $this->query($sql);
 
@@ -42,11 +42,12 @@ class Predictions extends Standards {
 
 		return $array;
 	}
-	
+
 	function getPredictions(){
+			//error_reporting(E_ALL); 
 	    $sql = "SELECT * FROM predictions_all_types";
     	$query = $this->query($sql, 'fetch');
-	    	
+
 	    $array = array(
 			'query'=> $query,
 			'sql'=>$sql,
@@ -62,7 +63,7 @@ class Predictions extends Standards {
 	function getPredictionSingle($predictionId){
 	    $sql = "SELECT * FROM predictions_all_types where id = ".$predictionId." ";
     	$query = $this->query($sql, 'fetch');
-	    	
+
 	    $array = array(
 			'query'=> $query,
 			'sql'=>$sql,
@@ -74,5 +75,5 @@ class Predictions extends Standards {
 
 		return $array;
 	}
-	
+
 }

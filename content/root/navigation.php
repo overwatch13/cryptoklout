@@ -1,7 +1,7 @@
 <?php
 include ROOT . "jobs/loginAuth.php";
 include ROOT . "content/phpviews/navigation-view-helper.php";
-?> 
+?>
 
 
  <!-- navbar-->
@@ -13,14 +13,14 @@ include ROOT . "content/phpviews/navigation-view-helper.php";
             <?php if($navigationConfirmationMessageOn){ echo $navigationMessage; } ?>
             <li class="nav-item"><a href="/pages/trends/main.php" class="nav-link">Trends</a></li>
             <li class="nav-item"><a href="/pages/ranks/sort.php" class="nav-link">Ranks</a></li>
-            
+
             <?php if(isset($_SESSION) && isset($_SESSION['email'])){ ?>
               <!-- if the user is logged in than offer them ability to make a new prediction. -->
-              <li class="nav-item"><a href="/predictor/<?php echo $_SESSION['userId'];?>" class="nav-link">Profile</a></li>
+              <li class="nav-item"><a href="/predictor/<?php echo $_SESSION['id']; ?>" class="nav-link">Profile</a></li>
                <li class="nav-item"><a href="/pages/predictions/prediction-choices.php" class="nav-link">New Prediction</a></li>
             <?php } ?>
-            
-            <li class="nav-item" style="padding: .5rem 1rem;"> 
+
+            <li class="nav-item" style="padding: .5rem 1rem;">
               <?php // for testing
               // echo '<pre style="font-size:11px;">';
               // print_r($_SESSION);
@@ -29,7 +29,7 @@ include ROOT . "content/phpviews/navigation-view-helper.php";
 
             <?php if(!empty($_SESSION['email'])) { ?>
               <span class='welcome-nav-msg'>Welcome, <?php echo $_SESSION['email']; ?></span> <a href="<?php echo $siteurl; ?>logout.php" class="btn btn-primary navbar-btn btn-shadow btn-gradient">Logout</a>
-            <?php } else if(!empty($_SESSION['fname'])) { ?> 
+            <?php } else if(!empty($_SESSION['fname'])) { ?>
               Welcome, <?php echo $_SESSION['fname']; ?> <a href="<?php echo $siteurl; ?>logout.php" class="btn btn-primary navbar-btn btn-shadow btn-gradient">Logout</a>
             <?php } else { ?>
               <a href="#" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary navbar-btn btn-shadow btn-gradient">Login</a>
@@ -45,7 +45,7 @@ include ROOT . "content/phpviews/navigation-view-helper.php";
       <div role="document" class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 id="exampleModalLabel" class="modal-title">Sign In</h5>            
+            <h5 id="exampleModalLabel" class="modal-title">Sign In</h5>
             <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
           </div>
           <div class="modal-body">
@@ -77,7 +77,7 @@ include ROOT . "content/phpviews/navigation-view-helper.php";
                 <label for="email">password</label>
                 <input type="password" name="password" required placeholder="Enter your password">
               </div>
-	      
+
                <div class="form-group">
 				   <div class="text-center">
 						<button type="submit" name="submitLogin" class="submit btn btn-primary btn-shadow btn-gradient">Sign In</button>
@@ -90,7 +90,7 @@ include ROOT . "content/phpviews/navigation-view-helper.php";
               	<a href="#" class="fb"><i class="fa fa-facebook" aria-hidden="true"></i> <span>Sign in with Facebook</span> </a>
           </div>
 				<div class="form-group google-sign">
-				   <?php echo $returnData; ?> 
+				   <?php echo $returnData; ?>
               </div>
               <div class="form-group twitter-sign">
 				  <?php echo $returnTData; ?>
@@ -98,13 +98,13 @@ include ROOT . "content/phpviews/navigation-view-helper.php";
 				  <hr />
 				   <p class="pull-left">Don't have an account? click <a href="javascript:void(0);" id="registerModel">here</a>.</p>
 				   <p class="text-right pull-right">Forgot Password ? click <a href="javascript:void(0);" id="forgotModel">here</a>.</p>
-              
+
             </form>
           </div>
         </div>
       </div>
     </div>
-    
+
     <!-- Modal Register-->
     <div id="RegisterModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade modal-popup">
       <div role="document" class="modal-dialog">
@@ -172,7 +172,7 @@ include ROOT . "content/phpviews/navigation-view-helper.php";
         </div>
       </div>
     </div>
-    
+
     <!-- Modal Change Password-->
     <div id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade modal-popup">
       <div role="document" class="modal-dialog">
@@ -194,7 +194,7 @@ include ROOT . "content/phpviews/navigation-view-helper.php";
 				}
 				?>
               <div class="form-group">
-				 <input type="hidden" value="<?php echo $_REQUEST['id']; ?>" name="emailAddress"> 
+				 <input type="hidden" value="<?php echo $_REQUEST['id']; ?>" name="emailAddress">
                 <label for="username">New Password</label>
                 <input type="password" name="newpass" required placeholder="Enter new password">
               </div>
@@ -205,13 +205,10 @@ include ROOT . "content/phpviews/navigation-view-helper.php";
               <div class="form-group">
 				  <div class="text-center">
 					<button type="submit" name="submitChange" class="submit btn btn-primary btn-shadow btn-gradient">Submit</button>
-				</div>	
+				</div>
               </div>
             </form>
           </div>
         </div>
       </div>
     </div>
-    
-
-

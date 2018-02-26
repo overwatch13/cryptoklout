@@ -1,6 +1,6 @@
 <?php
 class Google extends Standards {
-	
+
 	function googleLogin() {
 		if(!isset($_REQUEST['oauth_verifier'])) {
 			if(!isset($_POST['submitLogin'])) {
@@ -14,9 +14,9 @@ class Google extends Standards {
 						$clientSecret = 'nyR-ZNad4taOcqGDGw11jz9c'; //Google client secret
 						$redirectURL = 'http://cryptoklout.com';
 
-						// The below is failing, but it should be working to return us to the localhost. 
-						// says uri mistmatch.  // MAybe it is not allowed to hit the local url or something. 
-						// I have indeed added this to the authorized redirect urls. 
+						// The below is failing, but it should be working to return us to the localhost.
+						// says uri mistmatch.  // MAybe it is not allowed to hit the local url or something.
+						// I have indeed added this to the authorized redirect urls.
 						//((substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https'?'https':'http').'://'.$_SERVER["HTTP_HOST"].'/';
 
 						//Call Google API
@@ -27,7 +27,7 @@ class Google extends Standards {
 						$gClient->setRedirectUri($redirectURL);
 
 						$google_oauthV2 = new Google_Oauth2Service($gClient);
-						
+
 						if(isset($_GET['code'])) {
 							$gClient->authenticate($_GET['code']);
 							$_SESSION['token'] = $gClient->getAccessToken();
@@ -51,15 +51,20 @@ class Google extends Standards {
 								'picture'       => $gpUserProfile['picture'],
 								'link'          => $gpUserProfile['link']
 							);
-						
+
 							$_SESSION['email'] = $gpUserProfile['email'];
 							$_SESSION['displayName'] = $gpUserProfile['given_name'];
 
-							$selectData = "SELECT * FROM user email='".$gpUserProfile['email']."'";
+							$selectData = "SELECT * FROM user WHERE email='".$gpUserProfile['email']."'";
 							$query = $this->query($selectData, 'fetch');
+
 							if(count($query) == 0) {
-								$insertUser="INSERT INTO user(email,active,login_type) VALUES ('$gpUserProfile[email]', 'Active', 'google')";
-								$query = $this->query($insertUser);
+								$time = time();
+								$insertUser="INSERT INTO user(email,active,login_type,created) VALUES ('$gpUserProfile[email]', 'Active', 'google', " . $time . ")";
+								$query = $this->query($insertUser, 'id');
+								$_SESSION['id'] = $query;
+							}else{
+								$_SESSION['id'] = $query[0]['id'];
 							}
 						} else {
 							$authUrl = $gClient->createAuthUrl();

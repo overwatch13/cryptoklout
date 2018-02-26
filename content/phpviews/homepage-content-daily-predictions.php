@@ -4,13 +4,13 @@ $predictionPath = ROOT . "_classes/predictions/predictions.class.php";
 include $predictionPath;
 
 $Predictions = new Predictions();
-$rp = $Predictions->getPredictions();
-$rp = $rp['query'];
+$rpResponse = $Predictions->getPredictions();
+$rp = $rpResponse['query'];
 // get the prediction data here, and run the logic in php instead of JS.
 
 
 // echo "<pre style='font-size:11px;'>";
-// echo print_r($rp);
+// echo print_r($rpResponse);
 // echo "</pre>";
 
 $pHtml = '<div class="hp-recent-prediction-container clear">';

@@ -1,6 +1,9 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-$local = false; 
+$local = false;
 $myLocalPath = "/Users/williamhowley/Desktop/websites/cryptoklout/"; // change this based on where your local project is.
 $addr = $_SERVER['HTTP_HOST'];
 $local = preg_match('/localhost/', $addr);
