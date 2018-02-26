@@ -68,6 +68,7 @@ require.config({
         "numberUtilities" : "modules/numberUtilities",
         "dateUtilities" : "modules/dateUtilities",
         "universalEvents" : "modules/universalEvents",
+        "login":"modules/login",
 
         // **** pages ****
         // sometimes you may want to include an entire section or page somewhere else like a vm. so you can referance a page here.
@@ -113,6 +114,9 @@ require.config({
        'universalEvents' : {
         'deps' : ['jquery']
        },
+       'login' : {
+        'deps' : ['jquery']
+       },
 /*       'chartJsPluginAnnotation' : {
         'deps' : ['chart-js']
        },*/
@@ -122,7 +126,7 @@ require.config({
 
 // "react", "reactDOM",
 // , React, ReactDOM
-require(["jquery", "jqueryUi", "bootstrap", "universalEvents", "front", "owlCarousel", "select2", "blockui", ], function ($, jqueryUi, bootstrap, universalEvents, front, owlCarousel, select2, blockui) {
+require(["jquery", "jqueryUi", "bootstrap", "universalEvents", "login", "front", "owlCarousel", "select2", "blockui", ], function ($, jqueryUi, bootstrap, universalEvents, login, front, owlCarousel, select2, blockui) {
   $(document).ready(function(){
     require([ $('#requirePageSpecificJs').val() ]); // this is set in php, result: "/require-mturk.js"
   });

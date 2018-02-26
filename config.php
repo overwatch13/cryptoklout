@@ -49,6 +49,7 @@ if(!isset($metaKeywords)){
 }
 
 include ROOT . "_classes/standards.class.php";
+include ROOT . "_classes/email/sendEmail.class.php";
 include ROOT . 'social/Google_Client.php';
 include ROOT . 'social/contrib/Google_Oauth2Service.php';
 include ROOT . "social/twitter/twitteroauth.php";

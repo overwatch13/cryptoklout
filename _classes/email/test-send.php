@@ -2,22 +2,18 @@
 // ini_set('display_errors', 1);
 // ini_set('display_startup_errors', 1);
 // error_reporting(E_ALL);
-//
+
+// The last time I tried this 2/25/2018 it was not working. Could not get google email client to display the image.
+// gave up on this. 
 include "config.php";
 include ROOT . "_classes/email/sendEmail.class.php";
 include ROOT . "_classes/email/registrationContent.class.php";
 
-// $EmailContentClass = new EmailContent();
-// $emailContent = $EmailContentClass->Registration();
-// echo $emailContent;
-// $email = new Email();
-// $email->sendEmail("williamhowley@gmail.com", "CryptoKlout Email Registration", $emailContent);
-
-$EmailContentClass = new Email();
-$EmailContentClass->sendWarningToAdmin("Test message");
-// echo $emailContent;
-// $email = new Email();
-// $email->sendEmail("williamhowley@gmail.com", "CryptoKlout Email Registration", $emailContent);
+$EmailContentClass = new EmailContent();
+$emailContent = $EmailContentClass->Registration();
+echo $emailContent;
+$email = new Email();
+$email->sendEmail("williamhowley@gmail.com", "CryptoKlout Email Registration", $emailContent);
 
 //
 // echo "<pre style='font-size:11px;'>";

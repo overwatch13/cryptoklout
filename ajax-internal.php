@@ -5,6 +5,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/_functions/ck.functions.php'; // (includes standard.class.php) it would be nice if this could be a universal function we can pass stuff too, but not sure.
 //require_once $_SERVER['DOCUMENT_ROOT'] . "/_classes/predictions/prediction-consensus.php"; // causes a failure when you add this in!!!!
 include ROOT . "_classes/submitRecurringCoinInfo.class.php"; // used to submit the btc info.
+include ROOT . "_classes/custom.class.php";
 
 
 $return = array(
@@ -22,6 +23,18 @@ switch ($_REQUEST['operation']){
 		$return = ckRouter($construct);
 		break;
 
+	 case 'userLogin':
+		    $customClass = new Custom();
+	      $return = $customClass->customLogin($_REQUEST);
+				//$return = $_POST; // test
+			break;
+
+	case 'userRegister':
+			 $customClass = new Custom();
+			 $return = $customClass->customRegister($_POST);
+			 //$return = $_POST; // test
+		 break;
+
 	// being used from a homepage widget, this will change over time. This is a simple starting example.
 	case 'getPredictions':
 	    $Predictions = new Predictions();
@@ -30,8 +43,8 @@ switch ($_REQUEST['operation']){
 		break;
 
 	case 'getPredictionConsensus':
-	    $PC = new PredictionConsensus();
-        $data = $PC->getPredictionConsensus();
+	  $PC = new PredictionConsensus();
+    $data = $PC->getPredictionConsensus();
 		$return = $data; // test
 		break;
 
@@ -41,6 +54,11 @@ switch ($_REQUEST['operation']){
 	    $return = $submitCoinInfo->submitBTC($_POST);
 	    break;
 
+	case 'sendEmailWarning':
+	    $emailClass = new Email();
+      //$return = $_POST['message'];
+			$emailClass->sendWarningToAdmin($_POST['message']);
+	    break;
 
 }
 

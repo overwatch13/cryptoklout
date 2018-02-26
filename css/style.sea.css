@@ -1,12 +1,12 @@
-/* 
-========================================= 
-========================================= 
+/*
+=========================================
+=========================================
 
 Bootstrapious Landy Template
 
 https://bootstrapious.com
 
-========================================= 
+=========================================
 ========================================= */
 /*
 * ==========================================================
@@ -262,53 +262,7 @@ section header {
   border: none;
 }
 
-#signupform .form-group {
-  margin-bottom: 20px;
-}
 
-#signupform label {
-  display: block;
-  padding-left: 10px;
-  color: #656565;
-  font-family: "Open Sans", sans-serif;
-}
-
-#signupform input {
-  width: 100%;
-  display: block;
-  padding: 10px 20px;
-  border-radius: 50px;
-  border: 1px solid #eee;
-  outline: none;
-}
-
-#signupform input:focus {
-  border-color: #4CB8C4;
-}
-
-#signupform input::-moz-placeholder {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 300;
-  color: #aaa;
-  font-style: italic;
-  font-size: 0.9em;
-}
-
-#signupform input::-webkit-input-placeholder {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 300;
-  color: #aaa;
-  font-style: italic;
-  font-size: 0.9em;
-}
-
-#signupform input:-ms-input-placeholder {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 300;
-  color: #aaa;
-  font-style: italic;
-  font-size: 0.9em;
-}
 
 /* General Media Query ---------------------------------- */
 @media (max-width: 991px) {
@@ -1859,7 +1813,7 @@ a.text-dark:focus, a.text-dark:hover {
 }
 .modal.modal-popup  .modal-title {
     font-weight: 700;
-}	
+}
 .google-sign {
 background: #DC4B38;
    padding: 10px 20px;
@@ -1916,7 +1870,7 @@ font-size: 30px;
     width: 100%;
     top: 0px;
     cursor: pointer;
-} 
+}
 .facebook-sign .fb_iframe_widget span{
     width: 100% !important;
     height: 52px !important;
@@ -1926,7 +1880,7 @@ font-size: 30px;
 background: #55ACEE;
    padding: 10px 20px;
    color: #fff;
-} 
+}
 .twitter-sign a {
     display: block;
 	color: #fff;
