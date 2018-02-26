@@ -4,8 +4,9 @@
 class Predictions extends Standards {
 	function submitPrediction($info){
 		$post = $info['post'];
-		$userId = $info['userId'];
+
 		// data points
+		$userId = $post['userId'];
 		$predictionName = $post['predictionName'];
 		$predictionDays = $post['predictionDays'];
 		$coinSymbol = $post['coinSymbol'];
@@ -27,9 +28,9 @@ class Predictions extends Standards {
 		$sql = "INSERT INTO predictions_all_types (".$columnNames.") VALUES(".$values.")";
 		$query = $this->query($sql);
 
-        // *** Second Query update the predictor_timing_limitations table for the user ***/
-        $timingSql = "UPDATE predictor_timing_limitations SET ".$predictionName."='".$expires."' WHERE userId=".$userId." ";
-        $queryTiming = $this->query($timingSql);
+    // *** Second Query update the predictor_timing_limitations table for the user ***/
+    $timingSql = "UPDATE predictor_timing_limitations SET ".$predictionName."='".$expires."' WHERE userId=".$userId." ";
+    $queryTiming = $this->query($timingSql);
 
 		$array = array(
 			'query'=> $query,
@@ -44,7 +45,7 @@ class Predictions extends Standards {
 	}
 
 	function getPredictions(){
-			//error_reporting(E_ALL); 
+			//error_reporting(E_ALL);
 	    $sql = "SELECT * FROM predictions_all_types";
     	$query = $this->query($sql, 'fetch');
 

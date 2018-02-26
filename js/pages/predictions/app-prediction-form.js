@@ -1,6 +1,6 @@
 define(["cryptcompareGetCoinPrice", "numberUtilities", "jqueryValidate"], function (cryptcompareGetCoinPrice, numberUtilities) {
     //console.log("app-predictions-single-day")
-    //cryptcompareGetallcoins.getAllCoins(); // When you want to go multi coin, you already set this up. 
+    //cryptcompareGetallcoins.getAllCoins(); // When you want to go multi coin, you already set this up.
 
     var currentPrice = $("#currentPrice").val().replace(/,/g, '');
     $predictionPrice = $("#predictionPrice");
@@ -19,7 +19,7 @@ define(["cryptcompareGetCoinPrice", "numberUtilities", "jqueryValidate"], functi
 		// works for decreasing numbers, 9, 6 == 66% decrease.
 		$percentChange = ((oldNumber - newNumber) / oldNumber) * 100;
 		// Note, if answer is negative, it is a postive increase.
-		// if answer is positive it is a % decrease. 
+		// if answer is positive it is a % decrease.
 		$percentChange = $percentChange * -1;
 		return $percentChange;
 	}
@@ -41,11 +41,12 @@ define(["cryptcompareGetCoinPrice", "numberUtilities", "jqueryValidate"], functi
         return {
             operation : "submitPrediction", // for the ajax switch
             function : "submitPrediction", // function name in the class we want to hit.
-            predictionDays: $("#predDays").val(), // amount of days the prediction is out for. 
+            predictionDays: $("#predDays").val(), // amount of days the prediction is out for.
             predictionName: $("#predName").val(),
+            userId: $("#userId").val(),
             coinSymbol: "BTC",
             currencySymbol: "USD",
-            currentPrice: currentPrice, 
+            currentPrice: currentPrice,
             predictedPrice: $predictionPrice.val().replace(/,/g, ''),
             percentageDifference: $percentageInput.val(),
             reason: $predictionReason.val(),
@@ -67,7 +68,7 @@ define(["cryptcompareGetCoinPrice", "numberUtilities", "jqueryValidate"], functi
             message: '<h1>Submitting</h1>'
         });*/
 
-        // do research on security risk of this. 
+        // do research on security risk of this.
         $.post("/ajax-internal.php", obj).done(function(data) {
             data = $.parseJSON(data);
             console.log(data)
@@ -82,7 +83,7 @@ define(["cryptcompareGetCoinPrice", "numberUtilities", "jqueryValidate"], functi
 
 
     // ******* Click Events *************
-    
+
     $predictionPrice.on("change", function(){
     	var newNumber = $(this).val().replace(/,/g, '');
     	_changeColor(newNumber);
@@ -94,7 +95,7 @@ define(["cryptcompareGetCoinPrice", "numberUtilities", "jqueryValidate"], functi
     });
 
     $percentageInput.on("change", function(){
-        // do reverse logic of the above in here, so you can derive the predicted price by the percentage given. 
+        // do reverse logic of the above in here, so you can derive the predicted price by the percentage given.
         var pDiff = $(this).val();
         var num;
         if(pDiff>0){
@@ -130,7 +131,7 @@ define(["cryptcompareGetCoinPrice", "numberUtilities", "jqueryValidate"], functi
             console.log("form is invalid")
         }
 
-        
+
     });
 
 

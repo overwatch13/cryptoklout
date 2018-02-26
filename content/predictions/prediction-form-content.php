@@ -1,15 +1,15 @@
 <!-- get btc price via db instead of JS, lower the api load -->
-<?php 
+<?php
 //echo ROOT;
 /*if($local){
   include ROOT . "_classes/pricetrackingbtc.class.php";
   include ROOT . "predictions/predictions-content-choose-timing-logic.php";
 }else{
-  
+
 }*/
 
 
-include ROOT . "_classes/pricetrackingbtc.class.php";  
+include ROOT . "_classes/pricetrackingbtc.class.php";
 include ROOT . "content/predictions/predictions-content-choose-timing-logic.php";
 
 $PriceTrackingBtc = new PriceTrackingBtc();
@@ -36,6 +36,7 @@ echo '</pre>';*/
     <input type="hidden" id="predDays" value="<?php echo $predDaysFuture; ?>">
     <input type="hidden" id="predName" value="<?php echo $predName; ?>">
     <input type="hidden" id="currentPrice" value="<?php echo $price; ?>">
+    <input type="hidden" id="userId" value="<?php echo $_SESSION['id']; ?>">
 
 <? if($uiVars[$predName]['availabilityBoolean']): ?>
 
@@ -58,7 +59,7 @@ echo '</pre>';*/
                       <input type="text" id="percentageInput" class="form-control" style="max-width:90px;">
                     </div>
                 </div>
-    
+
                 <div class="form-group">
                   <label for="predictionReason">Want to leave a reason?</label>
                   <textarea class="form-control" id="predictionReason" rows="5"></textarea>
@@ -69,7 +70,7 @@ echo '</pre>';*/
           </div>
         </div>
       </section>
-      
+
 <? else: ?>
 
     <section id="hero" class="bg-gray">
@@ -81,8 +82,5 @@ echo '</pre>';*/
           </div>
         </div>
       </section>
-      
+
 <? endif; ?>
-
-
-   

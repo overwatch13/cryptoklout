@@ -1,8 +1,7 @@
-<?php 
-include ROOT . "_classes/predictions/predictions-choose.class.php"; 
-$userId = 2; // fill this with dynamic information after you get login working.
+<?php
+include ROOT . "_classes/predictions/predictions-choose.class.php";
 $PredictionTimeLimitationsClass = new PredictionTimeLimitations();
-$timingResponse = $PredictionTimeLimitationsClass->getPredictorTimeLimitations($userId);
+$timingResponse = $PredictionTimeLimitationsClass->getPredictorTimeLimitations($_SESSION['id']);
 $timing_limitations = $timingResponse['query'][0];
 unset($timing_limitations['userId']); // remove the userId from the array since it is not needed for the comparison iterator.
 
@@ -11,9 +10,9 @@ print_r($timing_limitations);
 echo "</pre>";*/
 
 $today = date("Y-m-d H:i:s");
-$uiVars = array(); // storage for the ui, disabled boolean and messag to display. 
+$uiVars = array(); // storage for the ui, disabled boolean and messag to display.
 
-// Calculate the timing difference, and boolean leave this open ended enough so that the 1day, 3day, ... pages can use the logic as well, since you need to protect those pages. 
+// Calculate the timing difference, and boolean leave this open ended enough so that the 1day, 3day, ... pages can use the logic as well, since you need to protect those pages.
 foreach($timing_limitations as $key=>$limitationTime){
    $timeDifference = strtotime($today) - strtotime($limitationTime);
    $response = "";
@@ -21,33 +20,33 @@ foreach($timing_limitations as $key=>$limitationTime){
    if($timeDifference < 0){
        $availabilityBoolean = 0;
        // this means that the number is negative because expire time is greater than todays date.
-       // convert the number into days and hours, and if there is not a full day only display hours. 
-       // should we have sentences for each type like "Available in 1 hour etc", would require quite a bit of if than logic. 
+       // convert the number into days and hours, and if there is not a full day only display hours.
+       // should we have sentences for each type like "Available in 1 hour etc", would require quite a bit of if than logic.
        $timeDifference = abs($timeDifference);
        $timeDifferenceMinutes = ($timeDifference / 60); // divide by 60 seconds.
        $timeDifferenceHours = ($timeDifferenceMinutes / 60); // divide giving hours.
        $timeDifferenceDays = ($timeDifferenceHours / 24); // divide to give days
 
        if($timeDifferenceDays>1){
-            $response = "Available in ".round($timeDifferenceDays, 1)." days"; 
-            
+            $response = "Available in ".round($timeDifferenceDays, 1)." days";
+
        }else if($timeDifferenceDays <= 1){
-           $response = "Available in ".round($timeDifferenceHours, 1)." hours"; 
-           //$respond = true; 
+           $response = "Available in ".round($timeDifferenceHours, 1)." hours";
+           //$respond = true;
        }
-       
+
        //echo $timeDifference . "<br/>";
        //echo $response . "<br/>";
        //echo "not available <br/><br/>";
    }else{
-       
+
        // the number is positive, which means the todays time is greater than than expiration time so it is available!
        //echo $timeDifference . "<br/>";
        //echo "available <br/><br/>";
        $availabilityBoolean = 1;
        $response = "Available";
    }
-   
+
    // add to $uiVars to paint proper ui.
    $uiVars[$key] = array(
        "response"=>$response,
@@ -55,7 +54,7 @@ foreach($timing_limitations as $key=>$limitationTime){
        );
 }
 
-// Now create the UI directly in PHP, so the logic can be applied, and it is instantaneous load. 
+// Now create the UI directly in PHP, so the logic can be applied, and it is instantaneous load.
 $finalButtons = "";
 foreach($uiVars as $stone=>$predSingle){
     switch ($stone){ // gives "pred1" or "pred3"
@@ -102,27 +101,3 @@ foreach($uiVars as $stone=>$predSingle){
         $finalButtons .='</a>';
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

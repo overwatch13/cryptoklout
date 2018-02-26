@@ -57,12 +57,16 @@ class Google extends Standards {
 
 							$selectData = "SELECT * FROM user WHERE email='".$gpUserProfile['email']."'";
 							$query = $this->query($selectData, 'fetch');
-
+							// if the query could not find the email, than we create a new account for them.
 							if(count($query) == 0) {
 								$time = time();
 								$insertUser="INSERT INTO user(email,active,login_type,created) VALUES ('$gpUserProfile[email]', 'Active', 'google', " . $time . ")";
 								$query = $this->query($insertUser, 'id');
 								$_SESSION['id'] = $query;
+								// Instantiate the other necessary tables for them. Insert into predictor_timing_limitations
+								// Extract this into its own function, so you can add onto it for new tables in one place, for all types of logins.
+								$insertPredictorTiminingLimitations="INSERT INTO predictor_timing_limitations(userId) VALUES (".$query.")";
+								$this->query($insertPredictorTiminingLimitations);
 							}else{
 								$_SESSION['id'] = $query[0]['id'];
 							}
