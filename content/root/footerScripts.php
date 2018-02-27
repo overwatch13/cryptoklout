@@ -12,10 +12,12 @@
 
 	<!-- Note, we would need something to replace the /cryptowizard/ prefix so this works when putting online -->
 	<script data-main="/js/require-config.js" src="/js/vendors/require.minified.js"></script>
+
+  <!-- todo: extract this into a module, it should not be loose in the footer -->
 	<script src="<?php echo $siteurl; ?>social/social.js"></script>
-    <script>
-		var siteurl = "<?php echo $siteurl; ?>";
-    </script>
-    <script src="<?php echo $siteurl; ?>social/modal.js"></script>
+  <!-- this was added by Brian, find the things that is referencing it -->
+  <script>
+	var siteurl = "<?php echo $siteurl; ?>";
+  </script>
   </body>
 </html>

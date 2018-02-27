@@ -1,7 +1,3 @@
-<?php
-include ROOT . "jobs/loginAuth.php";
-include ROOT . "content/phpviews/navigation-view-helper.php"; // this is responsible for the message using php resets, but we are not going to do this that way anymore. 
-?>
 
  <!-- navbar-->
     <header class="header">
@@ -9,7 +5,6 @@ include ROOT . "content/phpviews/navigation-view-helper.php"; // this is respons
         <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><span></span><span></span><span></span></button>
         <div id="navbarSupportedContent" class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto align-items-start align-items-lg-center" style="margin-right:10px;">
-            <?php if($navigationConfirmationMessageOn){ echo $navigationMessage; } ?>
             <li class="nav-item"><a href="/pages/trends/main.php" class="nav-link">Trends</a></li>
             <li class="nav-item"><a href="/pages/ranks/sort.php" class="nav-link">Ranks</a></li>
 
@@ -31,7 +26,7 @@ include ROOT . "content/phpviews/navigation-view-helper.php"; // this is respons
             <?php } else if(!empty($_SESSION['fname'])) { ?>
               Welcome, <?php echo $_SESSION['fname']; ?> <a href="<?php echo $siteurl; ?>logout.php" class="btn btn-primary navbar-btn btn-shadow btn-gradient">Logout</a>
             <?php } else { ?>
-              <a href="#" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary navbar-btn btn-shadow btn-gradient">Login</a>
+              <a href="#" data-toggle="modal" data-target="#modal-signin" class="btn btn-primary navbar-btn btn-shadow btn-gradient">Login</a>
             <?php } ?>
             </li>
 

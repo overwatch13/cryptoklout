@@ -5,7 +5,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/_functions/ck.functions.php'; // (includes standard.class.php) it would be nice if this could be a universal function we can pass stuff too, but not sure.
 //require_once $_SERVER['DOCUMENT_ROOT'] . "/_classes/predictions/prediction-consensus.php"; // causes a failure when you add this in!!!!
 include ROOT . "_classes/submitRecurringCoinInfo.class.php"; // used to submit the btc info.
-include ROOT . "_classes/custom.class.php";
 
 
 $return = array(
@@ -27,6 +26,16 @@ switch ($_REQUEST['operation']){
 		    $customClass = new Custom();
 	      $return = $customClass->customLogin($_REQUEST);
 				//$return = $_POST; // test
+			break;
+
+	case 'userForgotPassword':
+		    $customClass = new Custom();
+	      $return = $customClass->customForgotPasswordSend($_REQUEST);
+			break;
+
+	case 'userChangedPassword':
+		    $customClass = new Custom();
+	      $return = $customClass->customChangePassword($_POST);
 			break;
 
 	case 'userRegister':

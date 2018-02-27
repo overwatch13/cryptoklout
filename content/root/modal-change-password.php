@@ -7,30 +7,21 @@
         <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
       </div>
       <div class="modal-body">
-        <form class="form-style" action="#" method="post">
-          <?php
-          if(isset($_REQUEST['success']) && $_REQUEST['success'] == 'password') {
-            echo "<div class='alert alert-success text-center'>Password changed successfully.</div>";
-          }
-          ?>
-          <?php
-          if(isset($_REQUEST['error']) && $_REQUEST['error'] == 'passwordnot') {
-            echo "<div class='alert alert-danger text-center'>Password doesn't match.</div>";
-          }
-          ?>
+        <form id="changePasswordModalFormId" class="form-style">
+          <div class="registerResponse"></div>
           <div class="form-group">
-            <input type="hidden" value="<?php echo $_REQUEST['id']; ?>" name="emailAddress">
-            <label for="username">New Password</label>
-            <input type="password" name="newpass" required placeholder="Enter new password">
+            <input id="changePasswordModalEmail" type="hidden" value="<?php echo $_REQUEST['id']; ?>">
+            <label for="password1">New Password</label>
+            <input id="changePasswordModalPassword1" type="password" name="password1" placeholder="Enter new password">
           </div>
           <div class="form-group">
-            <label for="username">Confirm Password</label>
-            <input type="password" name="changepass" required placeholder="Enter confirm password">
+            <label for="password2">Confirm Password</label>
+            <input id="changePasswordModalPassword2" type="password" name="password2" placeholder="Enter confirm password">
           </div>
           <div class="form-group">
-      <div class="text-center">
-      <button type="submit" name="submitChange" class="submit btn btn-primary btn-shadow btn-gradient">Submit</button>
-    </div>
+          <div class="text-center">
+            <button id="changePasswordModalSubmitBtn" class="submit btn btn-primary btn-shadow btn-gradient">Submit</button>
+          </div>
           </div>
         </form>
       </div>

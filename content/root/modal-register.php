@@ -7,8 +7,8 @@
         <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
       </div>
       <div class="modal-body">
-        <form class="form-style" action="#" method="post">
-          <div id="registerResponse"></div>
+        <form id="registerModalForm" class="form-style">
+          <div class="registerResponse"></div>
           <div class="form-group">
             <label for="username">Email Address</label>
             <input id="user-register-email-address" type="email" name="email" required placeholder="Enter your email">
@@ -19,7 +19,7 @@
           </div>
           <div class="form-group">
             <div class="text-center">
-              <button type="submit" id="js-user-register" name="submitRegister" class="submit btn btn-primary btn-shadow btn-gradient">Sign Up</button>
+              <button id="js-user-register" class="submit btn btn-primary btn-shadow btn-gradient">Sign Up</button>
             </div>
             <hr>
             <p class="pull-left">Already A Member? click <a href="javascript:void(0);" id="loginModel">here</a>.</p>

@@ -6,7 +6,7 @@
 // ADDED TO ALL FILES.
 require.config({
     baseUrl: '/js/',
-    urlArgs: "bust=v2",
+    urlArgs: "bust=v3",
     paths: {
         // VENDORS
         'jquery': 'vendors/jquery-1.11.0',
@@ -68,7 +68,8 @@ require.config({
         "numberUtilities" : "modules/numberUtilities",
         "dateUtilities" : "modules/dateUtilities",
         "universalEvents" : "modules/universalEvents",
-        "login":"modules/login",
+        "loginRelated":"modules/loginRelated",
+        "modalHandler":"modules/modalHandler",
 
         // **** pages ****
         // sometimes you may want to include an entire section or page somewhere else like a vm. so you can referance a page here.
@@ -114,7 +115,10 @@ require.config({
        'universalEvents' : {
         'deps' : ['jquery']
        },
-       'login' : {
+       'loginRelated' : {
+        'deps' : ['jquery']
+       },
+       'modalHandler' : {
         'deps' : ['jquery']
        },
 /*       'chartJsPluginAnnotation' : {
@@ -126,7 +130,7 @@ require.config({
 
 // "react", "reactDOM",
 // , React, ReactDOM
-require(["jquery", "jqueryUi", "bootstrap", "universalEvents", "login", "front", "owlCarousel", "select2", "blockui", ], function ($, jqueryUi, bootstrap, universalEvents, login, front, owlCarousel, select2, blockui) {
+require(["jquery", "jqueryUi", "bootstrap", "universalEvents", "loginRelated", "modalHandler", "front", "owlCarousel", "select2", "blockui", ], function ($, jqueryUi, bootstrap, universalEvents, loginRelated, modalHandler, front, owlCarousel, select2, blockui) {
   $(document).ready(function(){
     require([ $('#requirePageSpecificJs').val() ]); // this is set in php, result: "/require-mturk.js"
   });

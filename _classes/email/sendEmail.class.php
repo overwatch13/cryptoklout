@@ -36,4 +36,28 @@ class Email{
     mail("williamhowley@gmail.com","cryptoklout issue",$message,$headers);
     return "Success";
   }
+
+  function sendConfirmationEmail($email){
+    $register_link = "http://".$_SERVER['SERVER_NAME']."?isActive=Yes&activate=" . base64_encode($email);
+    $to = $email;
+    $subject = "CryptoKlout User Registration Activation Email";
+    $content = "Click this link to activate your CryptoKlout account. <a href='" . $register_link . "'>" . $register_link . "</a>";
+
+    // Send out the email
+    $headers = 'MIME-Version: 1.0' . "\r\n". 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+    $headers .= 'From: CryptoKlout Email Registration <no-reply@cryptoklout.com>' . "\r\n";
+    mail($to,$subject,$content,$headers); // this should be $content,
+  }
+
+  function sendForgotPasswordEmail($email){
+    $register_link = "http://".$_SERVER['SERVER_NAME']."?forgot=Yes&id=" . base64_encode($email);
+    $to = $email;
+    $subject = "CryptoKlout Forgot Password Recovery";
+    $content = "Click this link to reset your CryptoKlout password. <a href='" . $register_link . "'>" . $register_link . "</a>";
+
+    // Send out the email
+    $headers = 'MIME-Version: 1.0' . "\r\n". 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+    $headers .= 'From: CryptoKlout Forgot Password Recovery <no-reply@cryptoklout.com>' . "\r\n";
+    mail($to,$subject,$content,$headers); // this should be $content,
+  }
 }

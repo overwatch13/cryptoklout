@@ -1,4 +1,4 @@
-<?php 
+<?php
 include ROOT . "_classes/pricetrackingbtc.class.php";
 $PriceTrackingBtc = new PriceTrackingBtc();
 $price = $PriceTrackingBtc->getLatestBtc();
@@ -16,7 +16,7 @@ if($price['query'] && sizeof($price['query'])>0 && $price['query'][0]['PRICE'] !
   <div class="container text-center">
     <h3>Current Price of Bitcoin is... <span class="text-color-main">$<?php echo $price; ?></span></h3>
     <p>Will the price of BTC be higher or lower tomorrow?</p>
-    <a href="#" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary navbar-btn btn-shadow btn-gradient" style="margin-top:10px;">Start</a>
+    <a href="#" data-toggle="modal" data-target="#modal-signin" class="btn btn-primary navbar-btn btn-shadow btn-gradient" style="margin-top:10px;">Start</a>
   </div>
 </section>
 <? } ?>

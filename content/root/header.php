@@ -42,7 +42,9 @@
     <link rel="stylesheet" href="/js/vendors/font-awesome/css/font-awesome.min.css">
 
     <!-- temp fix to get latest -->
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <!-- You were using this for the arrows on the profile page, it was breaking the google login icons though.
+  you can either find and set the new google login icon, or use arrows from old.  -->
+    <!-- <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet"> -->
 
     <!-- Custom Font Icons CSS-->
     <link rel="stylesheet" href="/css/landy-iconfont.css">
