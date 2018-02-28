@@ -27,6 +27,7 @@ class Custom extends Standards {
 					session_start();
 					$_SESSION['email'] = $query[0]['email'];
 					$_SESSION['userId'] = $query[0]['id'];
+					$_SESSION['login_type'] = 'custom';
 					$success = true;
 					$case = "LogUserIn";
 				}
@@ -118,6 +119,7 @@ class Custom extends Standards {
 				session_start(); // auto log them in.
 				$_SESSION['email'] = $email;
 				$_SESSION['userId'] = $userInfo['id'];
+				$_SESSION['login_type'] = 'custom';
 				$userId = $userInfo['id'];
 				$case = "routeUserToProfilePage";
 			}else{

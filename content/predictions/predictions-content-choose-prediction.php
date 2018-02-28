@@ -1,4 +1,4 @@
-<?php include ROOT . "content/predictions/predictions-content-choose-timing-logic.php"; 
+<?php include ROOT . "content/predictions/predictions-content-choose-timing-logic.php";
 
 // echo "<pre style='font-size:10px;'>";
 // print_r($uiVars);

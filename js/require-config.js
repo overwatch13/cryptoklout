@@ -69,6 +69,7 @@ require.config({
         "dateUtilities" : "modules/dateUtilities",
         "universalEvents" : "modules/universalEvents",
         "loginRelated":"modules/loginRelated",
+        "oAuthLogins": "modules/oAuthLogins",
         "modalHandler":"modules/modalHandler",
 
         // **** pages ****
@@ -130,7 +131,8 @@ require.config({
 
 // "react", "reactDOM",
 // , React, ReactDOM
-require(["jquery", "jqueryUi", "bootstrap", "universalEvents", "loginRelated", "modalHandler", "front", "owlCarousel", "select2", "blockui", ], function ($, jqueryUi, bootstrap, universalEvents, loginRelated, modalHandler, front, owlCarousel, select2, blockui) {
+require(["jquery", "jqueryUi", "bootstrap", "universalEvents", "loginRelated", "oAuthLogins", "modalHandler", "front", "owlCarousel", "select2", "blockui", ],
+function ($, jqueryUi, bootstrap, universalEvents, loginRelated, oAuthLogins, modalHandler, front, owlCarousel, select2, blockui) {
   $(document).ready(function(){
     require([ $('#requirePageSpecificJs').val() ]); // this is set in php, result: "/require-mturk.js"
   });

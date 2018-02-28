@@ -53,10 +53,13 @@ include ROOT . "_classes/email/sendEmail.class.php";
 include ROOT . 'social/Google_Client.php';
 include ROOT . 'social/contrib/Google_Oauth2Service.php';
 include ROOT . "social/twitter/twitteroauth.php";
-include ROOT . "/sendgrid-php/sendgrid-php.php"; // deprecate this eventually.
+//include ROOT . "/sendgrid-php/sendgrid-php.php"; // deprecate this eventually.
 include ROOT . "jobs/loginAuth.php"; // looks for various $_POST and $_REQUESTS login related.
 // loginAuth contains the following three, perhaps include them in the config directly?
 // include ROOT . "_classes/google.class.php";
 // include ROOT . "_classes/twitter.class.php";
 // include ROOT . "_classes/loginRelated.class.php";
+
+// Attempting to refactor the the oauth logins using ajax, complete re-write. leaving old files intact, starting new classes.
+include ROOT . "_classes/oauthNew/googleLogin.class.php";
 /* EOF */

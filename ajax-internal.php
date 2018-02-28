@@ -1,4 +1,7 @@
 <?php
+// There could in theory be a SECURITY RISK for this file in general, because anyone could create a request for it, and start doing various functions.
+// the cross domain origin may stop it, but in theory they could change the object in the browser, so you really do need some type of
+// security protocol here to make sure the obects arent messed with, or change the approach completely in general.
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 //require_once $_SERVER['DOCUMENT_ROOT'] . "/_classes/standards.class.php"; // this is causing an error when I include it!!!
@@ -22,6 +25,8 @@ switch ($_REQUEST['operation']){
 		$return = ckRouter($construct);
 		break;
 
+	// All of these are identical aside from the class it calls, and the function name but we have that.
+	// Essentially, you could completely 100% modularize this thing so only 1 is necessary.
 	 case 'userLogin':
 		    $customClass = new Custom();
 	      $return = $customClass->customLogin($_REQUEST);
@@ -69,6 +74,10 @@ switch ($_REQUEST['operation']){
 			$emailClass->sendWarningToAdmin($_POST['message']);
 	    break;
 
+	case 'googleLogin':
+	    $GoogleLoginClass = new GoogleLogin();
+			$return = $GoogleLoginClass->login($_POST);
+	    break;
 }
 
 // old construct the way you did it in AT.
