@@ -10,7 +10,7 @@
 
             <?php if(isset($_SESSION) && isset($_SESSION['email'])){ ?>
               <!-- if the user is logged in than offer them ability to make a new prediction. -->
-              <li class="nav-item"><a href="/predictor/<?php echo $_SESSION['id']; ?>" class="nav-link">Profile</a></li>
+              <li class="nav-item"><a href="/predictor/<?php echo $_SESSION['userId']; ?>" class="nav-link">Profile</a></li>
                <li class="nav-item"><a href="/pages/predictions/prediction-choices.php" class="nav-link">New Prediction</a></li>
             <?php } ?>
 

@@ -37,8 +37,8 @@ class Email{
     return "Success";
   }
 
-  function sendConfirmationEmail($email){
-    $register_link = "http://".$_SERVER['SERVER_NAME']."?isActive=Yes&activate=" . base64_encode($email);
+  function sendConfirmationEmail($email, $hashVerificationToken){
+    $register_link = "http://".$_SERVER['SERVER_NAME']."?isActive=Yes&activate=" . base64_encode($email) . "&hashVerificationToken=". $hashVerificationToken;
     $to = $email;
     $subject = "CryptoKlout User Registration Activation Email";
     $content = "Click this link to activate your CryptoKlout account. <a href='" . $register_link . "'>" . $register_link . "</a>";
@@ -49,8 +49,8 @@ class Email{
     mail($to,$subject,$content,$headers); // this should be $content,
   }
 
-  function sendForgotPasswordEmail($email){
-    $register_link = "http://".$_SERVER['SERVER_NAME']."?forgot=Yes&id=" . base64_encode($email);
+  function sendForgotPasswordEmail($email, $hashVerificationToken){
+    $register_link = "http://".$_SERVER['SERVER_NAME']."?forgot=Yes&id=" . base64_encode($email) . "&hashVerificationToken=". $hashVerificationToken;;
     $to = $email;
     $subject = "CryptoKlout Forgot Password Recovery";
     $content = "Click this link to reset your CryptoKlout password. <a href='" . $register_link . "'>" . $register_link . "</a>";

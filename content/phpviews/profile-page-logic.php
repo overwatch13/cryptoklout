@@ -7,6 +7,8 @@ $predictorFound = false;
 $masterArr = array(
 	"pastPredictions"=>"",
 	"futurePredictions"=>"",
+	"predictionsRawData"=>array(),
+	"correctPercent"=>0,
 ); // rename this, but currently used for storing all predictions.
 $processedTotal = 0; // used to calculate the % correct.
 $predictionSucceeded = 0; // used to calculate the % correct.

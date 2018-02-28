@@ -1,9 +1,9 @@
 <?php
 include ROOT . "_classes/predictions/predictions-choose.class.php";
-print_r($_SESSION);
+//print_r($_SESSION);
 $PredictionTimeLimitationsClass = new PredictionTimeLimitations();
 $timingResponse = $PredictionTimeLimitationsClass->getPredictorTimeLimitations($_SESSION['userId']);
-print_r($timingResponse);
+//print_r($timingResponse);
 // THIS IS BROKEN BECAUSE WE ARE NOT INSERTING A RECORD INTO predictor_timing_limitations on the Register, like we should be!
 $timing_limitations = $timingResponse['query'][0];
 unset($timing_limitations['userId']); // remove the userId from the array since it is not needed for the comparison iterator.

@@ -58,7 +58,9 @@ define(["jqueryValidate"], function (jqueryValidate) {
         operation : "userChangedPassword", // for the ajax switch
         function : "userChangedPassword", // function name in the class we want to hit.
         email: $("#changePasswordModalEmail").val(), // this is a base64_encode  value string.
+        hashVerificationToken: $("#changePasswordModalHashVerificationToken").val(),
         password: $("#changePasswordModalPassword1").val(),
+
     };
 
     $.post("/ajax-internal.php", obj).done(function(data) {
@@ -90,7 +92,7 @@ define(["jqueryValidate"], function (jqueryValidate) {
        $.unblockUI();
        try{
          data = $.parseJSON(data);
-         console.log(data)
+         //console.log(data)
          _handleAjaxResponse(data);
        }catch (e){
          // if a string was returned its because php threw an error.
@@ -105,17 +107,19 @@ define(["jqueryValidate"], function (jqueryValidate) {
   var _handleAjaxResponse = function(data){
     $registerResponse = $('.registerResponse:visible');
     $registerResponse.html('');
+    console.log(data);
+
     if(data == null){
       $registerResponse.append($('<div class="warning-msg danger">The server did not respond correctly.</div>'));
     }else if(data.case == "warning"){
       $registerResponse.append($('<div class="warning-msg warning">'+data.responseMessage+'</div>'));
-    }else if(data.success == true && data.case == "routeUserToProfilePage" && (data.hasOwnProperty("id") && data.id !=="")){
+    }else if(data.case == "success"){
+      $registerResponse.append($('<div class="warning-msg success">'+data.responseMessage+'</div>'));
+    }else if(data.case == "routeUserToProfilePage" && (data.hasOwnProperty("id") && data.id !=="")){
       window.location.href = window.location.origin + "/predictor/" + data.id;
-      //console.log(data);
-    }else if(data.success == true && data.case == "routeUserToPredictionChoices"){
-      // currently a successful registration brings them to the prediction page first.
-      //window.location.href = window.location.origin + "/pages/predictions/prediction-choices.php";
-      console.log(data);
+    }else if(data.case == "routeUserToPredictionChoices"){
+      // dont think we are using this case right now.
+      window.location.href = window.location.origin + "/pages/predictions/prediction-choices.php";
     }
   };
 

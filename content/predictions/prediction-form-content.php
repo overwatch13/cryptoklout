@@ -1,13 +1,4 @@
-<!-- get btc price via db instead of JS, lower the api load -->
 <?php
-//echo ROOT;
-/*if($local){
-  include ROOT . "_classes/pricetrackingbtc.class.php";
-  include ROOT . "predictions/predictions-content-choose-timing-logic.php";
-}else{
-
-}*/
-
 
 include ROOT . "_classes/pricetrackingbtc.class.php";
 include ROOT . "content/predictions/predictions-content-choose-timing-logic.php";
@@ -36,7 +27,7 @@ echo '</pre>';*/
     <input type="hidden" id="predDays" value="<?php echo $predDaysFuture; ?>">
     <input type="hidden" id="predName" value="<?php echo $predName; ?>">
     <input type="hidden" id="currentPrice" value="<?php echo $price; ?>">
-    <input type="hidden" id="userId" value="<?php echo $_SESSION['id']; ?>">
+    <input type="hidden" id="userId" value="<?php echo $_SESSION['userId']; ?>">
 
 <? if($uiVars[$predName]['availabilityBoolean']): ?>
 

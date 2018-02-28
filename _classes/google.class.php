@@ -62,13 +62,13 @@ class Google extends Standards {
 								$time = time();
 								$insertUser="INSERT INTO user(email,active,login_type,created) VALUES ('$gpUserProfile[email]', 'Active', 'google', " . $time . ")";
 								$query = $this->query($insertUser, 'id');
-								$_SESSION['id'] = $query;
+								$_SESSION['userId'] = $query;
 								// Instantiate the other necessary tables for them. Insert into predictor_timing_limitations
 								// Extract this into its own function, so you can add onto it for new tables in one place, for all types of logins.
 								$insertPredictorTiminingLimitations="INSERT INTO predictor_timing_limitations(userId) VALUES (".$query.")";
 								$this->query($insertPredictorTiminingLimitations);
 							}else{
-								$_SESSION['id'] = $query[0]['id'];
+								$_SESSION['userId'] = $query[0]['id'];
 							}
 						} else {
 							$authUrl = $gClient->createAuthUrl();

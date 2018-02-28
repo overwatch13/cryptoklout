@@ -11,6 +11,7 @@
           <div class="registerResponse"></div>
           <div class="form-group">
             <input id="changePasswordModalEmail" type="hidden" value="<?php echo $_REQUEST['id']; ?>">
+            <input id="changePasswordModalHashVerificationToken" type="hidden" value="<?php echo $_REQUEST['hashVerificationToken']; ?>">
             <label for="password1">New Password</label>
             <input id="changePasswordModalPassword1" type="password" name="password1" placeholder="Enter new password">
           </div>
