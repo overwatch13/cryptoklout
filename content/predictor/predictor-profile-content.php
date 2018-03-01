@@ -7,9 +7,9 @@ var userPredictions = <?php echo json_encode($masterArr); ?>
 
 
 <?php
-// echo "<pre style='font-size:11px;'>";
-// print_r($masterArr);
-// echo "</pre>";
+echo "<pre style='font-size:11px;'>";
+print_r($masterArr);
+echo "</pre>";
 ?>
 
 <?php if(!$masterArr['predictorFound']): ?>

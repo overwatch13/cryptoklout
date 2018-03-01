@@ -2,14 +2,13 @@
 class Standards {
 	// *****************************  LOCAL DATABASE ACCESS   *************************************************
 		/* NOTES
-		you added a password in 
+		you added a password in
 		C:\wamp\apps\phpmyadmin3.4.5\config.inc.php*/
 		// REMOTE REAL DATABASE
 		protected $host = 'localhost'; // within phpmyadmin, user must have "localhost" as the Host Name
 		protected $host_user = 'cryptokl_user2';
 		protected $host_pw = 'F%hd&F36*cnhJt';
 		protected $database = 'cryptokl_main';
-
 
 		protected $required = array();
 		protected $tableColumns = array();
@@ -24,17 +23,17 @@ class Standards {
 	//=======================
 		/* The function __construct is run automatically any time a class is instantiated. */
 		// you removed the two parameters here because it was required that every function have a parameter, which is not what we wanted in AT
-		public function __construct(){ 
+		public function __construct(){
 			/*
 				This piece determines whether the database connection should
 				be the settings to your localhost or the remote server
 			*/
 			$addr = $_SERVER['HTTP_HOST'];
-			$local = preg_match('/localhost/', $addr); // if it finds a match of localhost in the $addr, it will return 1. 
+			$local = preg_match('/localhost/', $addr); // if it finds a match of localhost in the $addr, it will return 1.
 			if($local == TRUE){
 				$this->api_url = 'http://localhost.api.cryptoklout.com';
 			}
-			// you deleted the sanitize function here. 
+			// you deleted the sanitize function here.
 			return TRUE;
 		}
 
@@ -149,7 +148,7 @@ class Standards {
 			}
 			//$data_string  .= $key . '=' . $val . '&';
 			 // is this trying to create its own url? is that how it talks to the other side?
-			// this does not work well, because if $val is an array, it causes problems and mass confusion as far as encoding / decoding in other parts. 
+			// this does not work well, because if $val is an array, it causes problems and mass confusion as far as encoding / decoding in other parts.
 			// anyway around this as far as assuming $val is a string? or making $val a string automatically?
 			// can we serialize() and unserialize() here if $val is an array?
 		}

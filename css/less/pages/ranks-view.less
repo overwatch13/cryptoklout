@@ -1,0 +1,39 @@
+@import "../mixins";
+@import "../variables";
+
+.ranks-container{
+  display: flex;
+  .clear();
+  border-top:1px solid #ccc;
+  border-right:1px solid #ccc;
+  border-left:1px solid #ccc;
+  &:last-child{
+    border-bottom:1px solid #ccc;
+  }
+  .cell{
+    //border-right:1px solid #ccc;
+    display:inline-block;
+
+  }
+  .rank-title{
+    min-width:45px;
+    display:inline-block;
+    padding:7px;
+    text-align:center;
+  }
+  .picture-container{
+    img{
+      width: 60px;
+    }
+  }
+  .crypto-score-title{
+    display:inline-block;
+    min-width:55px;
+    padding:7px;
+
+  }
+  .profile-info{
+    padding:7px;
+
+  }
+}

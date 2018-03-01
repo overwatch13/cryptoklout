@@ -1,4 +1,4 @@
 define([], function () {
-  console.log("ranks");
+  console.log(ranksMasterArr);
 
 }); // END require

@@ -10,6 +10,14 @@
         <form id="registerModalForm" class="form-style">
           <div class="registerResponse"></div>
           <div class="form-group">
+            <label for="userLoginFirstName">First Name</label>
+            <input type="text" id="userLoginFirstName" name="userLoginFirstName" required placeholder="First Name">
+          </div>
+          <div class="form-group">
+            <label for="userLoginLastName">Last Name</label>
+            <input type="text" id="userLoginLastName" name="userLoginLastName" required placeholder="Last Name">
+          </div>
+          <div class="form-group">
             <label for="username">Email Address</label>
             <input id="user-register-email-address" type="email" name="email" required placeholder="Enter your email">
           </div>

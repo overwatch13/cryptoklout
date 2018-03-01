@@ -34,7 +34,7 @@ class Custom extends Standards {
 			}else if($userInfo['password'] !==null && $userInfo['password'] !=="" && $userInfo['active'] == "DeActive"){
 				// sends the user another confirmation link
 				$EmailClass = new Email();
-				$EmailClass->sendConfirmationEmail($email);
+				$EmailClass->sendConfirmationEmail($email, $userInfo['hashVerificationToken']);
 				$case = "warning";
 				$responseMessage = "We have sent a confirmation link to the email address specified, please check your inbox and spam folder.";
 			}
@@ -145,6 +145,8 @@ class Custom extends Standards {
 	function customRegister($post) {
 		$email = $post['email'];
 		$pass = $post['password'];
+		$firstName = $post['firstName'];
+		$lastName = $post['lastName'];
 		$success = false;
 		$case = ""; // this is a string value for javascript to render proper login on ui "foundGoogle"
 		$responseMessage = "";
@@ -161,6 +163,10 @@ class Custom extends Standards {
 				$hashVerificationToken = sha1(time() . rand(1,10000)); // used for appending to verification email url.
 				$queryR="INSERT INTO user (email, password, login_type, salt, created, hashVerificationToken) VALUES ('".$email."','".$scrambledPassword."', 'custom', ".$salt.", ".$salt.", '".$hashVerificationToken."')";
 				$userId = $this->query($queryR, 'id');
+
+				// Add additional information into the user_info table.
+				$sql="INSERT INTO user_info (userId, first_name, last_name) VALUES (".$userId.", '".$firstName."', '".$lastName."')";
+				$this->query($sql);
 
 				// Insert a record into all other required tables.
 				$this->addOnAdditionalTablesForNewUser($userId);
@@ -187,9 +193,8 @@ class Custom extends Standards {
 
 	// When the user clicks on an activation link from an email, it starts a new browser,
 	// and loginAuth.php picks up on the isActive flag.
-	// http://localhost.cryptoklout.com/?isActive=Yes&activate=dGVzdDU0NkBtYWlsaW5hdG9yLmNvbQ==
+	// http://localhost.cryptoklout.com/?isActive=Yes&activate=dGVzdDU0NkBtYWlsaW5hdG9yLmNvbQ==&hashVerificationToken=r94vmdkvm4fe44
 	// The loginAuth.php than fires the IsActive() function here.
-	// There are still some security risks here because it is only being base64_encode d.
 	function activateAccountFromUrl() {
 		// This is responsible for taking the activation link, seeing if the account exists,
 		// also add onto the confirmation link a sha1 hash, which will be a combination of two radom things.
@@ -210,7 +215,7 @@ class Custom extends Standards {
 				$page = "http://".$_SERVER['SERVER_NAME']."/pages/predictions/prediction-choices.php";
 				header('Location: '.$page);
 			}else{
-				// the token do not match, so something is wrong, do not update their account or log them in.
+				// the tokens do not match, so something is wrong, do not update their account or log them in.
 			}
 		}else{
 			// something has gone horribly wrong but we have no way of telling the user.
@@ -223,6 +228,9 @@ class Custom extends Standards {
 	// and thus wont throw an error when they try to access a page that requires there to be a record for them.
 	function addOnAdditionalTablesForNewUser($userId){
 		$sql="INSERT INTO predictor_timing_limitations (userId) VALUES (".$userId.")";
+		$this->query($sql);
+
+		$sql="INSERT INTO user_crypto_score (userId, cryptoScore) VALUES (".$userId.", 400)";
 		$this->query($sql);
 	}
 

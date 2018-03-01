@@ -74,10 +74,10 @@ switch ($_REQUEST['operation']){
 			$emailClass->sendWarningToAdmin($_POST['message']);
 	    break;
 
-	case 'googleLogin':
-	    $GoogleLoginClass = new GoogleLogin();
-			$return = $GoogleLoginClass->login($_POST);
-	    break;
+	// case 'googleLogin':
+	//     $GoogleLoginClass = new GoogleLogin();
+	// 		$return = $GoogleLoginClass->login($_POST);
+	//     break;
 }
 
 // old construct the way you did it in AT.

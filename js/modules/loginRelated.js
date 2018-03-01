@@ -83,6 +83,8 @@ define(["jqueryValidate"], function (jqueryValidate) {
     var obj = {
         operation : "userRegister", // for the ajax switch
         function : "userRegister", // function name in the class we want to hit.
+        firstName: $("#userLoginFirstName").val(),
+        lastName: $("#userLoginLastName").val(),
         email: $("#user-register-email-address").val(),
         password: $("#user-register-password").val(),
     }
@@ -172,10 +174,14 @@ define(["jqueryValidate"], function (jqueryValidate) {
           rules: {
               email: { required: true},
               password: { required: true},
+              userLoginFirstName: { required: true},
+              userLoginLastName: { required: true},
           },
           messages: {
-              email: { required: "An email is required."},
-              password: { required: "A password is required."}
+              email: { required: "An email is required"},
+              password: { required: "A password is required"},
+              userLoginFirstName: { required: "First name is required"},
+              userLoginLastName: { required: "Last name is required"}
           }
       });
    };
