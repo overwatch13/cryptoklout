@@ -13,6 +13,9 @@ $masterArr = array(
 $processedTotal = 0; // used to calculate the % correct.
 $predictionSucceeded = 0; // used to calculate the % correct.
 
+//  ***** SOME OF THIS LOGIC SHOULD BE EXTRACTED INTO THE NIGHTLY JOB
+// THIS WAY IT CAN SIMPLY BE CALLED FROM A TABLE FOR OTHER VIEWS. THIS WAY YOU DONT NEED TO CALCULATE IT OVER AND OVER AGAIN.
+
 //*** GET user id from  /predictor/xxxxx ****
 $url = $_SERVER['REQUEST_URI'];
 $userId = substr($url,11);

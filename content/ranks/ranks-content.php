@@ -16,10 +16,11 @@ var ranksMasterArr = <?php echo json_encode($masterArr); ?>
 			<div class="col">
 				<h3>Rankings of all predictors</h3>
 				<?php
+				include ROOT . "content/ranks/ranks-content-loop.php";
+
 				// echo "<pre style='font-size:11px;'>";
 				// print_r($masterArr);
 				// echo "</pre>";
-				include ROOT . "content/ranks/ranks-content-loop.php";
 
 				?>
 			</div>

@@ -44,19 +44,80 @@ class Predictions extends Standards {
 		return $array;
 	}
 
-	function getPredictions(){
+	// This was being used on the homepage, but is not longer because the sql call is too complex, and needed to be its own call.
+	function getPredictions($options = array()){
+			// Available $options
+			/*
+				array(
+					"get"=>6,
+					"getFuture"=>true,
+				)
+			*/
+
+			$optionsSet = 0; // used as a flag because first one needs WHERE, subsequent ones need and
+			$whereAnd = "WHERE";
+
+			if(sizeof($options)==0){
+				$sql = "SELECT * FROM predictions_all_types ";
+			}else{
+				// write out the custom prediction search based on the options you want
+				if(isset($options['getFuture'])){
+					$optionsSet++;
+					if($optionsSet>1){ $whereAnd = "AND"; }
+					$sql .=  $whereAnd." expires > CURDATE() ";
+				}
+				if(isset($options['get'])){
+					$optionsSet++;
+					$sql .= " limit " . $options['get'];
+				}
+			}
+
+			$query = $this->query($sql, 'fetch');
 			//error_reporting(E_ALL);
-	    $sql = "SELECT * FROM predictions_all_types";
-    	$query = $this->query($sql, 'fetch');
+
 
 	    $array = array(
-			'query'=> $query,
 			'sql'=>$sql,
+			'query'=> $query,
+
 			//'info'=>$info,
 			//'userId'=>$userId,
 			//'post'=>$post,
 			//'coinSymbol'=>$coinSymbol,
 		);
+
+		return $array;
+	}
+
+	function getPredictionsHomepage(){
+		// u = user
+		// ucs = user_crypto_score
+		// ui = user_info
+		// pat = predictions_all_types
+		$sql = "SELECT u.email, ";
+		$sql .=" ucs.userId, ucs.cryptoScore, ";
+		$sql .=" ui.first_name, ui.last_name, ui.picture, ";
+		$sql .=" pat.id, pat.coinSymbol, pat.currencySymbol, pat.currentPrice, pat.predictedPrice, pat.percentageDifference, pat.reason, pat.timestamp, pat.predictionDays, pat.expires ";
+    $sql .=" FROM user u, user_crypto_score ucs, user_info ui, predictions_all_types pat ";
+    $sql .= " WHERE u.id = ucs.userId AND u.id = ui.userId AND u.id = pat.userId ";
+		$sql .= " AND pat.expires > CURDATE() LIMIT 6 ";
+
+		$query = $this->query($sql, 'fetch');
+    $users = $query;
+
+		$query = $this->query($sql, 'fetch');
+		//error_reporting(E_ALL);
+
+
+    $array = array(
+		'sql'=>$sql,
+		'query'=> $query,
+
+		//'info'=>$info,
+		//'userId'=>$userId,
+		//'post'=>$post,
+		//'coinSymbol'=>$coinSymbol,
+	);
 
 		return $array;
 	}

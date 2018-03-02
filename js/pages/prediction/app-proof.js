@@ -107,29 +107,35 @@ define(["d3",  "chartJs", "chartJsPluginAnnotation", "dateUtilities", "numberUti
       }
 
       var html = $('<ul class="list-group"></ul>');
-      var li1 = "Prediction made: "+dateUtilities.getMDYDate(payload.predictionInfo.timestamp)+", Ends: "+dateUtilities.getMDYDate(payload.predictionInfo.expires)+", Timeframe: " + payload.predictionInfo.predictionDays + " day"+daysPlural; 
+      var li1 = "Prediction made: "+dateUtilities.getMDYDate(payload.predictionInfo.timestamp)+", Ends: "+dateUtilities.getMDYDate(payload.predictionInfo.expires)+", Timeframe: " + payload.predictionInfo.predictionDays + " day"+daysPlural;
       html.append($('<li class="list-group-item">'+li1+'</li>'));
-      
-      var currentPrice = "Price at time of prediction: $"+numberUtilities.numberWithCommas(numberUtilities.round(payload.predictionInfo.currentPrice, 0)); 
+
+      var currentPrice = "Price at time of prediction: $"+numberUtilities.numberWithCommas(numberUtilities.round(payload.predictionInfo.currentPrice, 0));
       html.append($('<li class="list-group-item">'+currentPrice+'</li>'));
 
-      var predictedPrice = "Predicted price: $"+numberUtilities.numberWithCommas(numberUtilities.round(payload.predictionInfo.predictedPrice, 0)); 
+      var predictedPrice = "Predicted price: $"+numberUtilities.numberWithCommas(numberUtilities.round(payload.predictionInfo.predictedPrice, 0));
       html.append($('<li class="list-group-item">'+predictedPrice+'</li>'));
 
-      var percentage = "Percentage difference: "+payload.predictionInfo.percentageDifference; 
+      var percentage = "Percentage difference: "+payload.predictionInfo.percentageDifference;
       html.append($('<li class="list-group-item">'+percentage+'</li>'));
 
-      var li2 = "Coin: "+payload.predictionInfo.coinSymbol+", Currency: "+payload.predictionInfo.currencySymbol+", Status: "+predictionStatus; 
+      var li2 = "Coin: "+payload.predictionInfo.coinSymbol+", Currency: "+payload.predictionInfo.currencySymbol+", Status: "+predictionStatus;
+      if(payload.predictionInfo.processed == 1 && payload.predictionInfo.prediction_succeeded == 1){
+        li2 += ", <span class='text-success'>Success</span>";
+      }
+      if(payload.predictionInfo.processed == 1 && payload.predictionInfo.prediction_succeeded == 0){
+        li2 += ", <span class='text-danger'>Missed</span>";
+      }
       html.append($('<li class="list-group-item">'+li2+'</li>'));
 
-      var liReason = "Reason: "+payload.predictionInfo.reason; 
+      var liReason = "Reason: "+payload.predictionInfo.reason;
       html.append($('<li class="list-group-item">'+liReason+'</li>'));
 
       $("#js-predictionInfo").html(html);
    };
-   
 
-   // When page loads. 
+
+   // When page loads.
    _initializeChart();
    _initializePredictionInfo();
 
@@ -143,5 +149,5 @@ define(["d3",  "chartJs", "chartJsPluginAnnotation", "dateUtilities", "numberUti
 	   		);
 	   	}
    }
-   
+
    ReactDOM.render(React.createElement(Hello, null), mountNode);*/

@@ -1,15 +1,15 @@
 
 <?php
-include ROOT . "content/phpviews/profile-page-logic.php"; ?>
+include ROOT . "content/predictor/profile-page-logic.php"; ?>
 <script>
 var userPredictions = <?php echo json_encode($masterArr); ?>
 </script>
 
 
 <?php
-echo "<pre style='font-size:11px;'>";
-print_r($masterArr);
-echo "</pre>";
+// echo "<pre style='font-size:11px;'>";
+// print_r($masterArr);
+// echo "</pre>";
 ?>
 
 <?php if(!$masterArr['predictorFound']): ?>
@@ -29,7 +29,11 @@ echo "</pre>";
       <div class="col user-profile-container">
           <div class="profile-img-cont">
             <div class="profile-img-rounded">
-                <img src="/img/avatar-5.jpg" width="100">
+                <?php if($masterArr['predictorInfo']['picture']!==""): ?>
+                  <img src="<?php echo $masterArr['predictorInfo']['picture']; ?>" width="80">
+                <?php else: ?>
+                  <img src="/img/default-speaker-headshot.jpg" width="80">
+                <?php endif; ?>
             </div>
           </div>
 
@@ -37,7 +41,8 @@ echo "</pre>";
               <div class="card user-profile-card pull-left">
                 <div class="card-body">
                     <div class="card-title">CryptoKlout Score</div>
-                    <div class="card-text text-success"></div>
+                    <div class="card-text text-success"><?php
+                    if(isset($masterArr['predictorInfo']['cryptoScore'])){ echo $masterArr['predictorInfo']['cryptoScore']; } ?></div>
                 </div>
             </div>
             <div class="card user-profile-card pull-left">

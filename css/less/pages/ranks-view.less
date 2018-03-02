@@ -1,6 +1,23 @@
 @import "../mixins";
 @import "../variables";
 
+.rank-header-container{
+  margin-top:20px;
+  font-size: 13px;
+  background:#525252;
+  .clear();
+  .cell{
+    float:left;
+    padding:10px 6px;
+
+    color:#fff;
+  }
+}
+.cell{
+  //border-right:1px solid #ccc;
+  display:inline-block;
+
+}
 .ranks-container{
   display: flex;
   .clear();
@@ -10,13 +27,9 @@
   &:last-child{
     border-bottom:1px solid #ccc;
   }
-  .cell{
-    //border-right:1px solid #ccc;
-    display:inline-block;
 
-  }
   .rank-title{
-    min-width:45px;
+    min-width:42px;
     display:inline-block;
     padding:7px;
     text-align:center;
@@ -28,12 +41,15 @@
   }
   .crypto-score-title{
     display:inline-block;
-    min-width:55px;
+    min-width:83px;
     padding:7px;
+    //background:red;
+    text-align:center;
 
   }
   .profile-info{
     padding:7px;
+    //background:blue;
 
   }
 }

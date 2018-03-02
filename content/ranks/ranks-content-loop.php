@@ -1,6 +1,6 @@
-<div class="">
-  <div class="rank-title cell">Rank</div>
-  <div class="crypto-score-title cell">CryptoScore</div>
+<div class="rank-header-container">
+  <div class="cell">Rank</div>
+  <div class="cell">CryptoScore</div>
   <div class="cell">Predictor</div>
 </div>
 

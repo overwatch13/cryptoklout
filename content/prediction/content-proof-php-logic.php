@@ -85,10 +85,10 @@ if($runPage){
 
 // For testing
 if($runPage){ // now that we now we are looking at some stuff, lets get some additional information like who the predictor is.
-	/*echo "<pre style='font-size:11px;'>";
-	print_r($predictionSingleData);
-	print_r($predictorPersonalInfo);
-	echo "<br/> Attempting to subtract and add 7 days from the prediction timestamp";
-	print_r($priceTrackingRangeArr[0]);
-	echo "</pre>";*/
+	// echo "<pre style='font-size:11px;'>";
+	// print_r($predictionSingleData);
+	// print_r($predictorPersonalInfo);
+	// echo "<br/> Attempting to subtract and add 7 days from the prediction timestamp";
+	// print_r($priceTrackingRangeArr[0]);
+	// echo "</pre>";
 }
