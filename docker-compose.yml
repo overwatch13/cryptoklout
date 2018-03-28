@@ -10,12 +10,16 @@ services:
     volumes:
       - .:/var/www/html
     links:
-      - db
-      
-  db:
+      - crypto_db
+
+  crypto_db:
     image: mysql:5.7
     volumes:
       - /var/lib/mysql
+      - ./db:/docker-entrypoint-initdb.d
     environment:
       - MYSQL_ROOT_PASSWORD=cryptoklout
-      - MYSQL_DATABASE=database
+      - MYSQL_HOST=localhost
+      - MYSQL_DATABASE=cryptokl_local
+      - MYSQL_USER=crypto_local
+      - MYSQL_PASSWORD=password
