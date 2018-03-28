@@ -4,7 +4,7 @@
 // error_reporting(E_ALL);
 
 $local = false;
-$myLocalPath = "/Users/williamhowley/Desktop/websites/cryptoklout/"; // change this based on where your local project is.
+$myLocalPath = "/var/www/html/"; // change this based on where your local project is.
 $addr = $_SERVER['HTTP_HOST'];
 $local = preg_match('/localhost/', $addr);
 $siteName = "cryptoklout";

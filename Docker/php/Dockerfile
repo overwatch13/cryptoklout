@@ -1,4 +1,5 @@
-FROM php:7.0-fpm
+FROM php:7.0-apache
 
-RUN docker-php-ext-install pdo_mysql \
-    && docker-php-ext-install json
+RUN a2enmod rewrite
+
+RUN docker-php-ext-install mysqli
