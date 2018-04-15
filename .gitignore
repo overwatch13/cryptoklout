@@ -1,1 +1,8 @@
-node_modules/
+# Node deps
+node_modules
+
+# OSX files
+.DS_Store
+
+# Jetbrains (WebStorm, PHPStorm, etc)
+.idea
