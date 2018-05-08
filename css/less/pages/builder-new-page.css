@@ -1,0 +1,79 @@
+/*//test*/
+/*---------------------------------------------------
+LESS Elements 0.9
+---------------------------------------------------
+A set of useful LESS mixins
+More info at: http://lesselements.com
+---------------------------------------------------*/
+.group {
+  zoom: 1;
+}
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+.group:after {
+  clear: both;
+}
+.clearfix,
+.clear {
+  display: block;
+  zoom: 1;
+}
+.clearfix:after,
+.clear:after {
+  content: " ";
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+/*
+    USAGE: allows for hex color to convert to RGBA, mainly used to have TEXT opacity 100% with a opaque background behind it.
+.rgbaColorIn(#b1b1b1, 50%);
+     background-color: @result;
+*/
+/*** PAGE SPECIFIC ***/
+.title-space {
+  margin-top: 30px;
+}
+.appWrapper {
+  min-width: 100px;
+  border: 1px solid #ccc;
+  padding: 2px;
+  border-radius: 7px;
+}
+.appWrapper .cell {
+  display: inline-block;
+  border: 1px solid #ccc;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: #e8e8e8;
+  margin: 4px 3px;
+}
+#final-output {
+  border: 1px solid #ccc;
+  padding: 2px 5px;
+  border-radius: 7px;
+  margin: 0 0 30px 0;
+  min-height: 30px;
+}
+.option-container {
+  float: left;
+  margin: 0 0px 0 0;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+}
+.option-container .option-title {
+  font-weight: bold;
+}
+/* Medium devices (tablets, 768px and up) */

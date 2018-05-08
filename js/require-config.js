@@ -75,6 +75,9 @@ require.config({
         // **** pages ****
         // sometimes you may want to include an entire section or page somewhere else like a vm. so you can referance a page here.
         "appPredictionsSingleDay" : "predictions/app-predictions-single-day",
+        // Entire builder app
+        "builderFragments" : "pages/builder/builder-fragments",
+        "triggerUtilities" : "pages/builder/triggerUtilities",
 
         //** New Vendors ***/
         'popper': "vendors/popper.min",

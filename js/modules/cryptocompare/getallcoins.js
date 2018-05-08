@@ -11,38 +11,32 @@ define([], function(){
 			};
 			results.push(temp);
 		}
-		
-		console.log(results)
-		// Extract the selector out of hte function so it can be re-used, putting it here for demo purposes. 
+
+		//console.log(results)
+		// Extract the selector out of hte function so it can be re-used, putting it here for demo purposes.
 		// This is working, but you are not ready for multipl coins yet!!!
-		// <select class="js-coin-select" name="coinsSelect"></select>
+		//<select class="js-coin-select" name="coinsSelect"></select>
 		$(".js-coin-select").select2({data: results});
 
+		// Somehow need to attach this to the dom, or return interval
+		//console.log($selector);
 		/*, function(obj){
-			//obj.id = obj.id || obj.Id; // each object must have .id, and .text. but our object has different names. 
+			//obj.id = obj.id || obj.Id; // each object must have .id, and .text. but our object has different names.
 			//obj.text = obj.text || obj.FullName;
 		}*/
 	};
-	
-	var _getAllCoins = function(){
-		console.log("all coins")
-		$.getJSON( "https://min-api.cryptocompare.com/data/all/coinlist", function( data ) {
-			_createCoinSelectionDropdown(data);
-			//console.log(data)
-		}).done(function() {
-		    //console.log( "second success" );
-		  })
-		  .fail(function() {
-		    //console.log( "error" );
-		  })
-		  .always(function() {
-		   //console.log( "complete" );
-		  });
 
+	var _getAllCoins = function($selector){
+		//console.log("all coins")
+		var coinSelector = $.getJSON( "https://min-api.cryptocompare.com/data/all/coinlist", function(data) {
+			console.log("inside of _getAllCoins")
+			//console.log(data)
+			var coinSelector = _createCoinSelectionDropdown(data);
+		}).done(function() {})
 	};
 
 
-     return {
-     	getAllCoins: _getAllCoins
-     }
+   return {
+   		getAllCoins: _getAllCoins
+   }
 });
