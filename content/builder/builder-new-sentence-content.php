@@ -9,24 +9,51 @@
         <div class="row">
             <div class="col">
                 <h3>Trigger Builder</h3>
-                <div>Snippet 1</div>
+                <div>Rule 1</div>
                 <div id="app"></div>
                 
-                <div style="margin-top:15px;">How many times would you like the snippet rule to apply?</div>
-            	<div class="form-group" style="max-width:80px;">
-				    <select class="form-control" id="exampleFormControlSelect1">
-				      <option selected="true">1</option>
-				      <option>2</option>
-				      <option>3</option>
-				      <option>4</option>
-				      <option>5</option>
-				    </select>
-			  </div>
+                <div style="margin-top:15px; display:inline-block;">How many times would you like the rule to apply?</div>
+                
+                <div class="inline-input">
+                	<div class="form-group" style="min-width:60px;">
+					    <select class="form-control" id="exampleFormControlSelect1">
+					      <option selected="true">1</option>
+					      <option>2</option>
+					      <option>3</option>
+					      <option>4</option>
+					      <option>5</option>
+					    </select>
+				  </div>
+                </div>
+                <div class="helper-icon-container">
+                	<img src="/img/question-mark-icon-2.png" data-toggle="tooltip" title="For example: When BTC increases 5% (THREE TIMES) within 10 days" />
+                </div>
+            	
+               <div>Total time all rules are bound within</div>
+				<div class="inline-input">
+                	<div class="form-group">
+                		<input id="totalTimeNumber" type="number" value="1" class="input-styling" style="width:70px;">
+                	</div>
+                </div>
+                <div class="inline-input">
+                	<div class="form-group" style="min-width:60px;">
+						<select class="form-control" id="totalTimeType">
+						<option selected="true">week</option>
+						<option>day</option>
+						<option >hour</option>
+						</select>
+				  </div>
+                </div>
 
-               <div>What is the total time you would like the entire rule to by checked against?</div>
+                <h4 class="title-space">Final Trigger in Text format</h4>
+                <div id="final-output"></div>
 
 				<h4 class="title-space">Prediction</h4>
 				<p>Similar sentence builder to the entire top, except this is latched on, and starts to fire off when the trigger is activated. We can than track if anyone is making correct predictions, while they get benefit from getting messages on the triggers. </p>
+
+
+				
+
 
 				<h4 class="title-space">On Successful Trigger</h4>
 				<div style="margin-left:30px;">
@@ -56,8 +83,7 @@
 				</div>
 				</div>
 				
-				<h4 class="title-space">Final Trigger in Text format</h4>
-                <div id="final-output"></div>
+				
 
                 <div class="clear" style="margin-top:40px;">
 					<button id="reset-builder" type="button" class="btn btn-warning pull-right">Reset</button>
@@ -70,6 +96,7 @@
 	                	<div class="option-title">Direction</div>
 	                	<div class="option">decreases</div>
 	                	<div class="option">increases</div>
+	                	<div class="option">reaches</div>
 	                </div>
 
 	                <div class="option-container">

@@ -29,7 +29,7 @@ define([], function(){
 	var _getAllCoins = function($selector){
 		//console.log("all coins")
 		var coinSelector = $.getJSON( "https://min-api.cryptocompare.com/data/all/coinlist", function(data) {
-			console.log("inside of _getAllCoins")
+			//console.log("inside of _getAllCoins")
 			//console.log(data)
 			var coinSelector = _createCoinSelectionDropdown(data);
 		}).done(function() {})

@@ -78,6 +78,8 @@ require.config({
         // Entire builder app
         "builderFragments" : "pages/builder/builder-fragments",
         "triggerUtilities" : "pages/builder/triggerUtilities",
+        "updateFinalOutputText" : "pages/builder/updateFinalOutputText",
+        "triggerOptionsData" : "pages/builder/triggerOptionsData",
 
         //** New Vendors ***/
         'popper': "vendors/popper.min",

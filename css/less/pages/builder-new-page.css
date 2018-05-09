@@ -76,4 +76,21 @@ More info at: http://lesselements.com
 .option-container .option-title {
   font-weight: bold;
 }
+.inline-input {
+  display: inline-block;
+}
+.helper-icon-container {
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 5px;
+}
+.helper-icon-container img {
+  width: 17px;
+  height: 17px;
+}
+.input-styling {
+  height: 38px;
+  border-radius: 5px;
+  padding: 2px 6px;
+}
 /* Medium devices (tablets, 768px and up) */
